@@ -1,5 +1,3 @@
-
-
 'use client';
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -8,7 +6,6 @@ import Image from 'next/image';
 const DynamicEmoji = () => {
   const ghostImages = ['/img1.webp', '/img2.jpg', '/img3.webp', '/img4.avif'];
   const [currentImage, setCurrentImage] = useState(ghostImages[0]);
-
   useEffect(() => {
     const timer = setInterval(() => {
       const idx = Math.floor(Math.random() * ghostImages.length);
@@ -24,7 +21,12 @@ const DynamicEmoji = () => {
           key={currentImage}
           initial={{ scale: 0.2, opacity: 0, y: 100, rotate: -30 }}
           animate={{ scale: 1, opacity: 1, y: 0, rotate: 0 }}
-          exit={{ scale: 0.5, opacity: 0, rotate: 30, transition: { duration: 0.3 } }}
+          exit={{
+            scale: 0.5,
+            opacity: 0,
+            rotate: 30,
+            transition: { duration: 0.3 },
+          }}
           transition={{ type: 'spring', stiffness: 80, damping: 8 }}
           className="absolute"
         >

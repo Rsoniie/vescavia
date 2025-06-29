@@ -5,6 +5,7 @@ module.exports = {
     './src/**/*.{js,ts,jsx,tsx,mdx}',
     './app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
+const config = {
   theme: {
     extend: {
       fontFamily: {
@@ -15,3 +16,6 @@ module.exports = {
   },
   plugins: [],
 }
+};
+
+export default config;

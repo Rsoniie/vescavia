@@ -2,7 +2,7 @@ import { Inter, Jaro } from 'next/font/google'
 import './globals.css'
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
-const jaro = Jaro({ subsets: ['latin'], variable: '--font-jaro' }) // ✅ IMPORTANT
+const jaro = Jaro({ subsets: ['latin'], variable: '--font-jaro' }) 
 
 export const metadata = {
   title: 'Vescavia - Brand Scaling Agency',
@@ -10,9 +10,16 @@ export const metadata = {
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
+=======
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html lang="en">
       <body className={`${inter.variable} ${jaro.variable}`}>{children}</body>
     </html>
   )
+  );
 }
