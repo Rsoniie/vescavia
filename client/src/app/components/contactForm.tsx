@@ -18,7 +18,9 @@ const ContactForm = () => {
                 />
               </div>
               <div>
-                <label className="block text-xs text-white/80 mb-1">Email</label>
+                <label className="block text-xs text-white/80 mb-1">
+                  Email
+                </label>
                 <input
                   type="email"
                   className="w-full px-3 py-2 text-xs rounded bg-[#11001D] border border-white text-white placeholder-white focus:ring-1 focus:ring-purple-300"
@@ -28,7 +30,9 @@ const ContactForm = () => {
             </div>
 
             <div>
-              <label className="block text-xs text-white/80 mb-1">Company</label>
+              <label className="block text-xs text-white/80 mb-1">
+                Company
+              </label>
               <input
                 type="text"
                 className="w-full px-3 py-2 text-xs rounded bg-[#11001D] border border-white text-white placeholder-white focus:ring-1 focus:ring-purple-300"
@@ -37,10 +41,10 @@ const ContactForm = () => {
             </div>
 
             <div>
-              <label className="block text-xs text-white/80 mb-1">Service Needed</label>
-              <select
-                className="w-full px-3 py-2 text-xs rounded bg-[#11001D] border border-white text-white focus:ring-1 focus:ring-purple-300"
-              >
+              <label className="block text-xs text-white/80 mb-1">
+                Service Needed
+              </label>
+              <select className="w-full px-3 py-2 text-xs rounded bg-[#11001D] border border-white text-white focus:ring-1 focus:ring-purple-300">
                 <option value="">Select a service</option>
                 <option value="branding">Branding</option>
                 <option value="web-design">Web Design</option>
@@ -50,7 +54,9 @@ const ContactForm = () => {
             </div>
 
             <div>
-              <label className="block text-xs text-white/80 mb-1">About Project</label>
+              <label className="block text-xs text-white/80 mb-1">
+                About Project
+              </label>
               <textarea
                 rows={2}
                 className="w-full px-3 py-2 text-xs rounded bg-[#11001D] border border-white text-white placeholder-white focus:ring-1 focus:ring-purple-300"
