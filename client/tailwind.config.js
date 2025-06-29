@@ -1,5 +1,5 @@
 // tailwind.config.js
- const config = {
+const config = {
   theme: {
     extend: {
       colors: {
@@ -7,6 +7,6 @@
       },
     },
   },
-}
+};
 
 export default config;
