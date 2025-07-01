@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Navbar from '../components/navbar';
 import Link from 'next/link';
 
 export default function ServicesPage() {
@@ -32,33 +33,8 @@ export default function ServicesPage() {
     <div className="bg-[#11001D] text-white min-h-screen w-full">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* Navigation */}
-        <nav className="flex justify-center gap-4 sm:gap-6 mb-12 sm:mb-16 flex-wrap">
-          <Link
-            href="/about"
-            className="text-gray-400 hover:text-white transition-colors text-base sm:text-lg py-2 px-3 rounded-lg hover:bg-[#1D0B2E]/60"
-          >
-            About
-          </Link>
-          <Link
-            href="/work"
-            className="text-gray-400 hover:text-white transition-colors text-base sm:text-lg py-2 px-3 rounded-lg hover:bg-[#1D0B2E]/60"
-          >
-            Work
-          </Link>
-          <Link
-            href="/services"
-            className="text-white font-semibold text-base sm:text-lg py-2 px-3 rounded-lg bg-[#1D0B2E] relative group"
-          >
-            Services
-            <span className="absolute bottom-0 left-1/2 w-4/5 h-0.5 bg-white transform -translate-x-1/2 group-hover:w-full transition-all duration-300"></span>
-          </Link>
-          <Link
-            href="/contact"
-            className="text-gray-400 hover:text-white transition-colors text-base sm:text-lg py-2 px-3 rounded-lg hover:bg-[#1D0B2E]/60"
-          >
-            Contact
-          </Link>
-        </nav>
+
+        <Navbar />
 
         <main className="text-center">
           {/* Main heading */}
