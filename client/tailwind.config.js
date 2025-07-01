@@ -1,11 +1,10 @@
-const { fontFamily } = require('tailwindcss/defaultTheme')
+const { fontFamily } = require('tailwindcss/defaultTheme');
 
 module.exports = {
   content: [
     './src/**/*.{js,ts,jsx,tsx,mdx}',
     './app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
-const config = {
   theme: {
     extend: {
       fontFamily: {
@@ -15,7 +14,4 @@ const config = {
     },
   },
   plugins: [],
-}
 };
-
-export default config;

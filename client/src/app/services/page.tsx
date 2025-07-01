@@ -6,23 +6,26 @@ export default function ServicesPage() {
     {
       image: '/images/services/brand-management.png',
       title: 'Brand Management',
-      description: 'Comprehensive strategies to build and maintain your brand identity'
+      description:
+        'Comprehensive strategies to build and maintain your brand identity',
     },
     {
       image: '/images/services/video_editing.png',
       title: 'Video Editing',
-      description: 'Professional editing to bring your visual stories to life'
+      description: 'Professional editing to bring your visual stories to life',
     },
     {
       image: '/images/services/ad_creation.png',
       title: 'Ad Creation',
-      description: 'Eye-catching advertisements that convert viewers to customers'
+      description:
+        'Eye-catching advertisements that convert viewers to customers',
     },
     {
       image: '/images/services/webdev.png',
       title: 'Web Development',
-      description: 'Modern, responsive websites that deliver exceptional user experiences'
-    }
+      description:
+        'Modern, responsive websites that deliver exceptional user experiences',
+    },
   ];
 
   return (
@@ -30,13 +33,31 @@ export default function ServicesPage() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* Navigation */}
         <nav className="flex justify-center gap-4 sm:gap-6 mb-12 sm:mb-16 flex-wrap">
-          <Link href="/about" className="text-gray-400 hover:text-white transition-colors text-base sm:text-lg py-2 px-3 rounded-lg hover:bg-[#1D0B2E]/60">About</Link>
-          <Link href="/work" className="text-gray-400 hover:text-white transition-colors text-base sm:text-lg py-2 px-3 rounded-lg hover:bg-[#1D0B2E]/60">Work</Link>
-          <Link href="/services" className="text-white font-semibold text-base sm:text-lg py-2 px-3 rounded-lg bg-[#1D0B2E] relative group">
+          <Link
+            href="/about"
+            className="text-gray-400 hover:text-white transition-colors text-base sm:text-lg py-2 px-3 rounded-lg hover:bg-[#1D0B2E]/60"
+          >
+            About
+          </Link>
+          <Link
+            href="/work"
+            className="text-gray-400 hover:text-white transition-colors text-base sm:text-lg py-2 px-3 rounded-lg hover:bg-[#1D0B2E]/60"
+          >
+            Work
+          </Link>
+          <Link
+            href="/services"
+            className="text-white font-semibold text-base sm:text-lg py-2 px-3 rounded-lg bg-[#1D0B2E] relative group"
+          >
             Services
             <span className="absolute bottom-0 left-1/2 w-4/5 h-0.5 bg-white transform -translate-x-1/2 group-hover:w-full transition-all duration-300"></span>
           </Link>
-          <Link href="/contact" className="text-gray-400 hover:text-white transition-colors text-base sm:text-lg py-2 px-3 rounded-lg hover:bg-[#1D0B2E]/60">Contact</Link>
+          <Link
+            href="/contact"
+            className="text-gray-400 hover:text-white transition-colors text-base sm:text-lg py-2 px-3 rounded-lg hover:bg-[#1D0B2E]/60"
+          >
+            Contact
+          </Link>
         </nav>
 
         <main className="text-center">
@@ -44,10 +65,11 @@ export default function ServicesPage() {
           <h1 className="font-jaro text-6xl sm:text-7xl md:text-8xl lg:text-[122px] lowercase mb-8 leading-none text-transparent bg-clip-text bg-gradient-to-b from-white to-purple-200/70">
             services
           </h1>
-          
+
           {/* Tagline */}
           <p className="text-lg md:text-xl max-w-2xl mx-auto mb-12 sm:mb-16 text-gray-300 leading-relaxed">
-            We don't just provide services, we craft experiences that make your brand unforgettable.
+            We don't just provide services, we craft experiences that make your
+            brand unforgettable.
           </p>
 
           {/* Enhanced Services Grid */}
@@ -73,20 +95,24 @@ export default function ServicesPage() {
                 {/* Service Content */}
                 <div className="relative z-10 h-full flex flex-col justify-end p-6 sm:p-8">
                   {/* Title - visible on small screens, hidden on large screens until hover */}
-                  <h2 className="
+                  <h2
+                    className="
                     text-xl sm:text-2xl font-bold mb-2 
                     block lg:opacity-0 lg:group-hover:opacity-100 
                     transition-opacity duration-300
-                  ">
+                  "
+                  >
                     {service.title}
                   </h2>
-                  
+
                   {/* Description - hidden on small screens, visible on large screens on hover */}
-                  <p className="
+                  <p
+                    className="
                     text-gray-300 text-sm sm:text-base 
                     hidden lg:block lg:opacity-0 lg:group-hover:opacity-100 
                     transition-opacity duration-300
-                  ">
+                  "
+                  >
                     {service.description}
                   </p>
                 </div>
