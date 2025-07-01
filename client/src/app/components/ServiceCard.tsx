@@ -1,7 +1,12 @@
 // components/ServiceCard.js
 import Image from 'next/image';
 
-export default function ServiceCard({ image, title, description, priority }) {
+export default function ServiceCard({
+  image,
+  title,
+  description,
+  priority,
+}: any) {
   return (
     <article className="bg-white rounded-2xl shadow-md overflow-hidden transition hover:shadow-xl p-4">
       <Image
