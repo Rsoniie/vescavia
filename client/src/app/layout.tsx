@@ -9,8 +9,6 @@ export const metadata = {
   description: 'From Bold Ideas to Bold Brands',
 }
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
-=======
 export default function RootLayout({
   children,
 }: {
@@ -18,8 +16,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} ${jaro.variable}`}>{children}</body>
+      <body className={`${inter.variable} ${jaro.variable}`}>
+        {children}
+      </body>
     </html>
   )
-  );
 }
