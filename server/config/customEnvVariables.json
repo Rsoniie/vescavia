@@ -1,0 +1,15 @@
+{
+    "host": "HOST",
+    "port" : "PORT",
+    "db": {
+        "development": {
+            "mongoUri": "MONGO_URI_DEV"
+        },
+        "production": {
+            "mongoUri": "MONGO_URI_PROD"  
+        }         
+    },
+    "independentEnvs": {
+        
+    }
+}
