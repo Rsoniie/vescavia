@@ -1,0 +1,12 @@
+{
+        "testing": {
+            "schema": {
+            "url": "/api/testing",
+            "body": {
+                "type": "object",
+                "properties": {}
+            }
+        },
+            "joiSchemaName": "testingSchema"
+        }
+}
