@@ -6,7 +6,7 @@ export default function IndexPage() {
   return (
     <div className="min-h-screen bg-[#11001D]">
       <Navbar />
-      <div className="pt-16">
+      <div className="-mt-10">
         <Home />
         <ContactPage />
         <CopyrightPage />

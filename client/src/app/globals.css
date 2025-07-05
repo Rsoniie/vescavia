@@ -1,1 +1,30 @@
 @import 'tailwindcss';
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes marquee-right {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee var(--speed, 20s) linear infinite;
+}
+
+.animate-marquee-right {
+  animation: marquee-right var(--speed, 20s) linear infinite;
+}
+
+.animation-paused {
+  animation-play-state: paused;
+}
