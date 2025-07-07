@@ -5,8 +5,15 @@ import TeamSection from '../components/TeamSection';
 
 export const metadata: Metadata = {
   title: 'About Us | Our Creative Team',
-  description: 'Meet the talented individuals behind our innovative digital experiences. Learn about our team members and what we do.',
-  keywords: ['team', 'about us', 'developers', 'designers', 'digital experiences'],
+  description:
+    'Meet the talented individuals behind our innovative digital experiences. Learn about our team members and what we do.',
+  keywords: [
+    'team',
+    'about us',
+    'developers',
+    'designers',
+    'digital experiences',
+  ],
   openGraph: {
     title: 'About Our Team | Creative Digital Agency',
     description: 'Discover the people who make our digital magic happen',

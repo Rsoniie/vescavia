@@ -1,7 +1,19 @@
-import React from 'react';
+'use client';
+
+import Navbar from '../components/navbar';
+import React, { useRef } from 'react';
 import { Inter, Jaro } from 'next/font/google';
-import ContactForm from '../components/contactForm';
-import Image from 'next/image';
+import { motion, useScroll, useTransform, useInView } from 'framer-motion';
+import Head from 'next/head';
+
+// Import components
+import AnimatedBackground from '../components/ui/AnimatedBackground';
+import ContactHero from '../components/ui/ContactHero';
+import ContactImageSection from '../components/ui/ContactImageSection';
+import ContactFormSection from '../components/ui/ContactFormSection';
+import ContactInfoCards from '../components/ui/ContactInfoCards';
+import useMousePosition from '../components/hooks/useMousePosition.js';
+import { animationVariants } from '../components/hooks/constants/animations.js';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -15,42 +27,78 @@ const jaro = Jaro({
 });
 
 export default function ContactPage() {
+  const containerRef = useRef(null);
+  const heroRef = useRef(null);
+  const mousePosition = useMousePosition();
+  const isInView = useInView(heroRef, { once: true, amount: 0.3 });
+
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ['start end', 'end start'],
+  });
+
+  // Transform values
+  const backgroundY = useTransform(scrollYProgress, [0, 1], [0, -30]);
+  const titleY = useTransform(scrollYProgress, [0, 0.5], [0, -50]);
+  const formY = useTransform(scrollYProgress, [0, 1], [0, -20]);
+
+  // Font classes
+  const fontClasses = {
+    title: `${jaro.variable} font-sans`,
+    body: `${inter.variable} font-sans`,
+  };
+
   return (
-    <div className="min-h-screen bg-[#11001D] py-12 px-4">
-      <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-12 sm:mb-16">
-          <h1
-            className={`mb-4 sm:mb-6 font-bold ${jaro.variable} text-white leading-tight`}
-            style={{ fontSize: '2.5rem', lineHeight: '1.2' }}
-          >
-            Ready to Scale Your Brand?
-          </h1>
-          <p
-            className={`text-white/80 ${inter.variable} font-sans mb-8 sm:mb-12`}
-            style={{ fontSize: '1rem' }}
-          >
-            Create something funky together. Drop us a message and let's start
-            your brand transformation today.
-          </p>
-        </div>
+    <>
+      <Navbar />
+      <Head>
+        <title>Contact Us | Vescavia</title>
+        <meta
+          name="description"
+          content="Get in touch with the creative team behind Vescavia and let's scale your brand."
+        />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="preload" href="/images/contact/doll.png" as="image" />
+      </Head>
 
-        <div className="flex flex-col md:flex-row gap-6 sm:gap-8 items-stretch">
-          <div className="hidden md:block w-full md:w-1/3 relative">
-            <Image
-              src="/img_form.png"
-              alt="Brand illustration"
-              width={500}
-              height={700}
-              className="object-cover h-full rounded-xl"
-              quality={100}
+      <motion.div
+        ref={containerRef}
+        className="min-h-screen bg-gradient-to-br from-[#11001D] via-[#1a012a] to-[#11001D] pt-35 pb-12 px-4 relative overflow-hidden"
+        style={{ y: backgroundY }}
+        variants={animationVariants.containerVariants}
+        initial="hidden"
+        animate="visible"
+      >
+        <AnimatedBackground
+          mousePosition={mousePosition}
+          scrollYProgress={scrollYProgress}
+        />
+
+        <div className="max-w-6xl mx-auto relative z-10">
+          <ContactHero
+            titleY={titleY}
+            fontClasses={fontClasses}
+            variants={animationVariants}
+          />
+
+          <motion.div
+            className="flex flex-col lg:flex-row gap-6 sm:gap-8 items-stretch"
+            variants={animationVariants.itemVariants}
+          >
+            <ContactImageSection />
+            <ContactFormSection
+              formY={formY}
+              fontClasses={fontClasses}
+              variants={animationVariants}
             />
-          </div>
+          </motion.div>
 
-          <div className="w-full md:w-2/3 bg-[#1a012a] rounded-xl p-6 sm:p-8 border border-white/10">
-            <ContactForm />
-          </div>
+          <ContactInfoCards
+            variants={animationVariants}
+            fontClasses={fontClasses}
+          />
         </div>
-      </div>
-    </div>
+      </motion.div>
+    </>
   );
 }
