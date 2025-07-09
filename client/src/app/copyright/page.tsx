@@ -29,16 +29,36 @@ export default function CopyrightPage() {
           <div className="flex justify-between items-center w-full flex-wrap md:flex-nowrap gap-6">
             {/* Left: Social Icons */}
             <div className="flex space-x-4">
-              <a href="#" aria-label="LinkedIn" className="hover:scale-110 transition">
+              <a
+                href="#"
+                aria-label="LinkedIn"
+                className="hover:scale-110 transition"
+              >
                 <img src="/icons/linkedin.svg" alt="LinkedIn" className="h-6" />
               </a>
-              <a href="#" aria-label="Instagram" className="hover:scale-110 transition">
-                <img src="/icons/instagram.svg" alt="Instagram" className="h-6" />
+              <a
+                href="#"
+                aria-label="Instagram"
+                className="hover:scale-110 transition"
+              >
+                <img
+                  src="/icons/instagram.svg"
+                  alt="Instagram"
+                  className="h-6"
+                />
               </a>
-              <a href="#" aria-label="YouTube" className="hover:scale-110 transition">
+              <a
+                href="#"
+                aria-label="YouTube"
+                className="hover:scale-110 transition"
+              >
                 <img src="/icons/youtube.svg" alt="YouTube" className="h-6" />
               </a>
-              <a href="#" aria-label="Facebook" className="hover:scale-110 transition">
+              <a
+                href="#"
+                aria-label="Facebook"
+                className="hover:scale-110 transition"
+              >
                 <img src="/icons/facebook.svg" alt="Facebook" className="h-6" />
               </a>
             </div>
