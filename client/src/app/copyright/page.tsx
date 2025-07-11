@@ -1,5 +1,6 @@
 // pages/copyright.js
 import Head from 'next/head';
+import { FaLinkedin, FaInstagram, FaYoutube, FaFacebook } from 'react-icons/fa';
 
 export default function CopyrightPage() {
   return (
@@ -11,13 +12,16 @@ export default function CopyrightPage() {
 
       <main className="bg-[#11001D] text-white min-h-screen flex flex-col items-center justify-center">
         {/* Logo section with hover text */}
+
         <section className="w-full bg-[#11001D] py-16 flex justify-center items-center overflow-hidden">
-          <h1 className="group relative text-white font-extrabold tracking-tight text-[19vw] leading-none">
-            Vescavia
-            <span className="absolute top-full left-1/2 -translate-x-1/2 mt-4 text-sm text-gray-300 italic opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-              A door to connect with world
-            </span>
-          </h1>
+          <div className="group relative flex flex-col items-center">
+            <h1 className="text-white font-extrabold tracking-tight text-[10vw] sm:text-[12vw] md:text-[15vw] lg:text-[19vw] leading-none">
+              Vescavia
+            </h1>
+            <p className="mt-6 text-sm sm:text-base md:text-lg text-gray-300 italic opacity-0 group-hover:opacity-100 transition-opacity duration-500 text-center">
+              A door to connect with the world
+            </p>
+          </div>
         </section>
 
         {/* Divider */}
@@ -28,48 +32,44 @@ export default function CopyrightPage() {
           {/* Footer Row */}
           <div className="flex justify-between items-center w-full flex-wrap md:flex-nowrap gap-6">
             {/* Left: Social Icons */}
-            <div className="flex space-x-4">
+            <div className="flex space-x-4 flex-1 justify-start">
               <a
                 href="#"
                 aria-label="LinkedIn"
-                className="hover:scale-110 transition"
+                className="hover:scale-110 transition text-white hover:text-blue-400"
               >
-                <img src="/icons/linkedin.svg" alt="LinkedIn" className="h-6" />
+                <FaLinkedin className="h-6 w-6" />
               </a>
               <a
                 href="#"
                 aria-label="Instagram"
-                className="hover:scale-110 transition"
+                className="hover:scale-110 transition text-white hover:text-pink-400"
               >
-                <img
-                  src="/icons/instagram.svg"
-                  alt="Instagram"
-                  className="h-6"
-                />
+                <FaInstagram className="h-6 w-6" />
               </a>
               <a
                 href="#"
                 aria-label="YouTube"
-                className="hover:scale-110 transition"
+                className="hover:scale-110 transition text-white hover:text-red-500"
               >
-                <img src="/icons/youtube.svg" alt="YouTube" className="h-6" />
+                <FaYoutube className="h-6 w-6" />
               </a>
               <a
                 href="#"
                 aria-label="Facebook"
-                className="hover:scale-110 transition"
+                className="hover:scale-110 transition text-white hover:text-blue-600"
               >
-                <img src="/icons/facebook.svg" alt="Facebook" className="h-6" />
+                <FaFacebook className="h-6 w-6" />
               </a>
             </div>
 
             {/* Center: Logo */}
-            <div className="flex justify-center flex-shrink-0">
+            <div className="flex justify-center flex-1">
               <img src="/logo.png" alt="Vescavia Logo" className="h-10" />
             </div>
 
             {/* Right: Navigation Links */}
-            <nav className="text-sm space-x-4 flex flex-wrap justify-end">
+            <nav className="text-sm space-x-4 flex flex-wrap justify-end flex-1">
               <a href="#" className="hover:underline">
                 About
               </a>

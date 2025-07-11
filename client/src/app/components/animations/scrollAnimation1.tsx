@@ -19,22 +19,22 @@ export default function VideoGrid() {
   }, []);
 
   return (
-    <div className="w-full px-0 mx-0 py-20">
+    <div className="w-full px-4 mx-auto py-20 max-w-7xl">
       <motion.ul
-        className="list-none p-0 m-0 grid grid-cols-3 gap-3 w-full"
+        className="list-none p-0 m-0 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5 }}
       >
-        {order.map((videoUrl) => (
+        {order.map((videoUrl, index) => (
           <motion.li
-            key={videoUrl}
+            key={`${videoUrl}-${index}`}
             layout
             transition={spring}
-            className="w-[45rem] h-[30rem] rounded-lg overflow-hidden bg-gray-100"
+            className="w-full aspect-square rounded-lg overflow-hidden bg-gray-100 shadow-lg"
             whileHover={{
               scale: 1.05,
-              boxShadow: '0 0 15px rgba(0,0,0,0.2)',
+              boxShadow: '0 10px 30px rgba(0,0,0,0.3)',
             }}
             whileTap={{ scale: 0.95 }}
           >
@@ -45,7 +45,10 @@ export default function VideoGrid() {
               loop
               muted
               playsInline
-              onError={(e) => console.error('Video failed to load:', videoUrl)}
+              onError={(e) => {
+                console.error('Video failed to load:', videoUrl);
+                // You could set a fallback image here
+              }}
             />
           </motion.li>
         ))}
@@ -54,7 +57,12 @@ export default function VideoGrid() {
   );
 }
 
-const initialVideos = ['/vfx1.mp4', '/vfx2.mp4', '/vfx3.mp4'];
+// Add some sample videos or use placeholder
+const initialVideos = [
+  '/vfx1.mp4', 
+  '/vfx2.mp4', 
+  '/vfx3.mp4'
+];
 
 function shuffle([...array]: string[]) {
   return array.sort(() => Math.random() - 0.5);
