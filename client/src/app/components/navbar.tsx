@@ -17,7 +17,7 @@ type NavLink = {
 const navLinks: NavLink[] = [
   { name: 'About', href: 'about' },
   { name: 'Work', href: 'work' },
-  { name: 'Services', href: 'services' },
+  { name: 'Services', href: '/services' },
   { name: 'Contact', href: 'contact' },
 ];
 
@@ -106,9 +106,13 @@ const Navbar = () => {
   const backgroundColor = useTransform(
     scrollY,
     [0, 100],
-    ['rgba(8, 0, 15, 0.1)', 'rgba(8, 0, 15, 0.98)']
+    ['rgba(8, 0, 15, 0.1)', 'rgba(8, 0, 15, 0.98)'],
   );
-  const backdropBlur = useTransform(scrollY, [0, 100], ['blur(0px)', 'blur(16px)']);
+  const backdropBlur = useTransform(
+    scrollY,
+    [0, 100],
+    ['blur(0px)', 'blur(16px)'],
+  );
 
   useEffect(() => {
     const handleScroll = () => {
@@ -170,7 +174,7 @@ const Navbar = () => {
           {navLinks.map((link, i) => (
             <motion.a
               key={link.name}
-              href={`#${link.href}`}
+              href={`${link.href}`}
               custom={i}
               variants={linkVariants}
               initial="hidden"
@@ -210,7 +214,10 @@ const Navbar = () => {
           >
             <motion.span
               className="block w-6 h-0.5 bg-current mb-1.5"
-              variants={{ closed: { rotate: 0, y: 0 }, open: { rotate: 45, y: 7 } }}
+              variants={{
+                closed: { rotate: 0, y: 0 },
+                open: { rotate: 45, y: 7 },
+              }}
               transition={{ duration: 0.3 }}
             />
             <motion.span
@@ -220,7 +227,10 @@ const Navbar = () => {
             />
             <motion.span
               className="block w-6 h-0.5 bg-current"
-              variants={{ closed: { rotate: 0, y: 0 }, open: { rotate: -45, y: -7 } }}
+              variants={{
+                closed: { rotate: 0, y: 0 },
+                open: { rotate: -45, y: -7 },
+              }}
               transition={{ duration: 0.3 }}
             />
           </motion.div>
