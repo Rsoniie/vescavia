@@ -10,22 +10,24 @@ const videoServices = [
   {
     image: '/images/services/video-editing-1.jpg',
     title: 'Social Video Editing',
-    description: 'Short-form, viral-ready edits for TikTok, Reels, and YouTube Shorts.'
+    description:
+      'Short-form, viral-ready edits for TikTok, Reels, and YouTube Shorts.',
   },
   {
     image: '/images/services/video-editing-2.jpg',
     title: 'Commercial Editing',
-    description: 'Polished, high-impact edits for ads, promos, and launches.'
+    description: 'Polished, high-impact edits for ads, promos, and launches.',
   },
   {
     image: '/images/services/video-editing-3.jpg',
     title: 'Motion Graphics',
-    description: 'Dynamic animations and graphics to make your videos pop.'
+    description: 'Dynamic animations and graphics to make your videos pop.',
   },
   {
     image: '/images/services/video-editing-4.jpg',
     title: 'Storytelling Cuts',
-    description: 'Narrative-driven edits that keep viewers engaged from start to finish.'
+    description:
+      'Narrative-driven edits that keep viewers engaged from start to finish.',
   },
 ];
 
@@ -34,19 +36,20 @@ const heroImages = ['/img1.webp', '/img2.jpg', '/img3.webp', '/img4.avif'];
 const processSteps = [
   {
     title: 'Brief & Vision',
-    description: 'We learn your goals, style, and audience for a perfect creative fit.'
+    description:
+      'We learn your goals, style, and audience for a perfect creative fit.',
   },
   {
     title: 'Raw to Rough',
-    description: 'We cut, arrange, and build the story from your footage.'
+    description: 'We cut, arrange, and build the story from your footage.',
   },
   {
     title: 'Polish & Effects',
-    description: 'We add color, sound, motion, and magic.'
+    description: 'We add color, sound, motion, and magic.',
   },
   {
     title: 'Delivery',
-    description: 'You get ready-to-publish, platform-optimized videos.'
+    description: 'You get ready-to-publish, platform-optimized videos.',
   },
 ];
 
@@ -54,39 +57,47 @@ const testimonials = [
   {
     name: 'Jamie Lin',
     company: 'SnapFit',
-    quote: 'Our videos finally get the attention they deserve. Vescavia’s edits are next-level!'
+    quote:
+      'Our videos finally get the attention they deserve. Vescavia’s edits are next-level!',
   },
   {
     name: 'Ravi Kumar',
     company: 'ByteWorks',
-    quote: 'The motion graphics and storytelling made our campaign unforgettable.'
+    quote:
+      'The motion graphics and storytelling made our campaign unforgettable.',
   },
   {
     name: 'Taylor Brooks',
     company: 'Peak Media',
-    quote: 'Fast, creative, and always on-brand. Highly recommend for any video project.'
+    quote:
+      'Fast, creative, and always on-brand. Highly recommend for any video project.',
   },
 ];
 
 const faqs = [
   {
     question: 'What types of videos do you edit?',
-    answer: 'We edit everything from social clips to commercials, explainers, and more.'
+    answer:
+      'We edit everything from social clips to commercials, explainers, and more.',
   },
   {
     question: 'How do I send you my footage?',
-    answer: 'We provide a secure upload link and clear instructions for every project.'
+    answer:
+      'We provide a secure upload link and clear instructions for every project.',
   },
   {
     question: 'Can you add subtitles and captions?',
-    answer: 'Absolutely! We offer full captioning and accessibility options.'
+    answer: 'Absolutely! We offer full captioning and accessibility options.',
   },
 ];
 
 export default function VideoEditingPage() {
   return (
     <div className="min-h-screen bg-[#11001D] text-white w-full">
-      <SEO title="Video Editing Services" description="Vescavia: Video editing that captivates and converts." />
+      <SEO
+        title="Video Editing Services"
+        description="Vescavia: Video editing that captivates and converts."
+      />
       <Navbar />
       {/* Hero Section */}
       <section className="relative flex flex-col lg:flex-row items-center justify-between max-w-7xl mx-auto pt-32 pb-16 px-4 sm:px-8">
@@ -95,7 +106,10 @@ export default function VideoEditingPage() {
             Video Editing
           </h1>
           <p className="text-lg md:text-2xl text-gray-200 max-w-xl mb-8">
-            We turn raw footage into <span className="text-fuchsia-300 font-bold">scroll-stopping</span> and <span className="text-blue-300 font-bold">story-driven</span> videos.
+            We turn raw footage into{' '}
+            <span className="text-fuchsia-300 font-bold">scroll-stopping</span>{' '}
+            and <span className="text-blue-300 font-bold">story-driven</span>{' '}
+            videos.
           </p>
           <Button textContent="Start Your Edit" className="mt-2" />
         </div>
@@ -112,7 +126,9 @@ export default function VideoEditingPage() {
               Why Vescavia for Video Editing?
             </h2>
             <p className="text-gray-200 text-lg mb-4">
-              We don’t just edit videos. We create <span className="text-fuchsia-300 font-semibold">stories</span> that move, inspire, and convert.
+              We don’t just edit videos. We create{' '}
+              <span className="text-fuchsia-300 font-semibold">stories</span>{' '}
+              that move, inspire, and convert.
             </p>
             <ul className="list-disc pl-6 text-gray-300 space-y-2">
               <li>Short-form & long-form expertise</li>
@@ -123,7 +139,12 @@ export default function VideoEditingPage() {
           </div>
           <div className="flex-1 flex items-center justify-center">
             <div className="relative w-64 h-64 rounded-2xl overflow-hidden shadow-xl border-2 border-fuchsia-400/30">
-              <Image src="/images/services/video-hero.jpg" alt="Video Editing Visual" fill className="object-cover" />
+              <Image
+                src="/images/services/video-hero.jpg"
+                alt="Video Editing Visual"
+                fill
+                className="object-cover"
+              />
             </div>
           </div>
         </div>
@@ -136,8 +157,13 @@ export default function VideoEditingPage() {
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {processSteps.map((step, idx) => (
-            <div key={idx} className="bg-[#1D0B2E] rounded-2xl shadow-xl border border-fuchsia-400/10 p-6 flex flex-col items-center text-center">
-              <div className="text-4xl mb-4">{['📝','✂️','✨','📦'][idx]}</div>
+            <div
+              key={idx}
+              className="bg-[#1D0B2E] rounded-2xl shadow-xl border border-fuchsia-400/10 p-6 flex flex-col items-center text-center"
+            >
+              <div className="text-4xl mb-4">
+                {['📝', '✂️', '✨', '📦'][idx]}
+              </div>
               <h3 className="font-jaro text-2xl font-bold mb-2 bg-gradient-to-r from-purple-200 via-fuchsia-200 to-blue-200 bg-clip-text text-transparent">
                 {step.title}
               </h3>
@@ -154,7 +180,10 @@ export default function VideoEditingPage() {
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {videoServices.map((service, idx) => (
-            <div key={idx} className="bg-[#1D0B2E] rounded-2xl shadow-xl border border-fuchsia-400/10 hover:border-fuchsia-400/40 transition-all duration-300 overflow-hidden">
+            <div
+              key={idx}
+              className="bg-[#1D0B2E] rounded-2xl shadow-xl border border-fuchsia-400/10 hover:border-fuchsia-400/40 transition-all duration-300 overflow-hidden"
+            >
               <ServiceCard {...service} />
             </div>
           ))}
@@ -168,7 +197,10 @@ export default function VideoEditingPage() {
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {testimonials.map((t, idx) => (
-            <div key={idx} className="bg-gradient-to-br from-purple-900/60 via-fuchsia-900/60 to-blue-900/60 rounded-2xl shadow-xl border border-fuchsia-400/10 p-6 flex flex-col items-center text-center">
+            <div
+              key={idx}
+              className="bg-gradient-to-br from-purple-900/60 via-fuchsia-900/60 to-blue-900/60 rounded-2xl shadow-xl border border-fuchsia-400/10 p-6 flex flex-col items-center text-center"
+            >
               <div className="text-4xl mb-4">🌟</div>
               <p className="text-lg text-gray-200 mb-4">“{t.quote}”</p>
               <div className="font-bold text-fuchsia-200">{t.name}</div>
@@ -185,8 +217,13 @@ export default function VideoEditingPage() {
         </h2>
         <div className="space-y-6">
           {faqs.map((faq, idx) => (
-            <div key={idx} className="bg-[#1D0B2E] rounded-xl border border-fuchsia-400/10 p-6 shadow-md">
-              <h3 className="font-jaro text-xl font-bold mb-2 text-fuchsia-200">{faq.question}</h3>
+            <div
+              key={idx}
+              className="bg-[#1D0B2E] rounded-xl border border-fuchsia-400/10 p-6 shadow-md"
+            >
+              <h3 className="font-jaro text-xl font-bold mb-2 text-fuchsia-200">
+                {faq.question}
+              </h3>
               <p className="text-gray-300 text-base">{faq.answer}</p>
             </div>
           ))}
