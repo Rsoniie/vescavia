@@ -1,42 +1,41 @@
 import Image from 'next/image';
 import Navbar from '../components/navbar';
 import Link from 'next/link';
-import brandManagement from "../../../public/images/services/brand-management.png";
-import videoEditing from "../../../public/images/services/video_editing.png";
-import adCreation from "../../../public/images/services/ad_creation.png";
-import webdev from "../../../public/images/services/webdev.png";
+import brandManagement from '../../../public/images/services/brand-management.png';
+import videoEditing from '../../../public/images/services/video_editing.png';
+import adCreation from '../../../public/images/services/ad_creation.png';
+import webdev from '../../../public/images/services/webdev.png';
 
 export default function ServicesPage() {
-
   const services = [
-  {
-    image: brandManagement,
-    title: 'Brand Management',
-    description: 'Comprehensive strategies to build and maintain your brand identity',
-    href: '/services/brand-management',
-  },
-  {
-    image: videoEditing,
-    title: 'Video Editing',
-    description: 'Professional editing to bring your visual stories to life',
-    href: '/services/video-editing',
-  },
-  {
-    image: adCreation,
-    title: 'Ad Creation',
-    description: 'Eye-catching advertisements that convert viewers to customers',
-    href: '/services/ad-creation', 
-  },
-  {
-    image: webdev,
-    title: 'Web Development',
-    description: 'Modern, responsive websites that deliver exceptional user experiences',
-    href: '/services/web-development',
-  },
-];
-
-
-  
+    {
+      image: brandManagement,
+      title: 'Brand Management',
+      description:
+        'Comprehensive strategies to build and maintain your brand identity',
+      href: '/services/brandManagement',
+    },
+    {
+      image: videoEditing,
+      title: 'Video Editing',
+      description: 'Professional editing to bring your visual stories to life',
+      href: '/services/videoEditing',
+    },
+    {
+      image: adCreation,
+      title: 'Ad Creation',
+      description:
+        'Eye-catching advertisements that convert viewers to customers',
+      href: '/services/addCreation',
+    },
+    {
+      image: webdev,
+      title: 'Web Development',
+      description:
+        'Modern, responsive websites that deliver exceptional user experiences',
+      href: '/services/webDevelopment',
+    },
+  ];
 
   return (
     <div className="bg-[#11001D] text-white min-h-screen w-full">
