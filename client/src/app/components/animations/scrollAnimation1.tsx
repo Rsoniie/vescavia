@@ -1,75 +1,68 @@
 'use client';
-import { Transition } from 'motion/react';
-import * as motion from 'motion/react-client';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
+import { motion, AnimatePresence, useViewportScroll, useTransform } from 'framer-motion';
 
 export default function VideoGrid() {
-  const [order, setOrder] = useState(initialVideos);
-  const [isActive, setIsActive] = useState(false);
+  const [current, setCurrent] = useState(0);
+  const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
+  const videos = initialVideos;
 
+  // Scroll zoom effect
+  const { scrollY } = useViewportScroll();
+  // Adjust these values for when the zoom should start/end
+  const scale = useTransform(scrollY, [0, 400], [1, 1.1]);
+  const borderRadius = useTransform(scrollY, [0, 400], ["1rem", "0rem"]);
+  const boxShadow = useTransform(scrollY, [0, 400], [
+    "0 10px 30px rgba(0,0,0,0.3)",
+    "0 0px 0px rgba(0,0,0,0)"
+  ]);
+
+  // Advance to next video on end
+  const handleEnded = () => {
+    setCurrent((prev) => (prev + 1) % videos.length);
+  };
+
+  // When current changes, play the new video
   useEffect(() => {
-    if (isActive) {
-      const timeout = setTimeout(() => setOrder(shuffle(order)), 1000);
-      return () => clearTimeout(timeout);
+    const vid = videoRefs.current[current];
+    if (vid) {
+      vid.currentTime = 0;
+      vid.play();
     }
-  }, [order, isActive]);
-
-  useEffect(() => {
-    setIsActive(true);
-  }, []);
+  }, [current]);
 
   return (
-    <div className="w-full px-4 mx-auto py-20 max-w-7xl">
-      <motion.ul
-        className="list-none p-0 m-0 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.5 }}
+    <div className="w-full flex justify-center items-center">
+      <motion.div
+        className="relative w-[90vw] aspect-video bg-black overflow-hidden"
+        style={{ scale, borderRadius, boxShadow }}
       >
-        {order.map((videoUrl, index) => (
-          <motion.li
-            key={`${videoUrl}-${index}`}
-            layout
-            transition={spring}
-            className="w-full aspect-square rounded-lg overflow-hidden bg-gray-100 shadow-lg"
-            whileHover={{
-              scale: 1.05,
-              boxShadow: '0 10px 30px rgba(0,0,0,0.3)',
+        <AnimatePresence mode="wait">
+          <motion.video
+            key={videos[current]}
+            ref={(el) => {
+              videoRefs.current[current] = el;
             }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <video
-              src={videoUrl}
-              className="w-full h-full object-cover"
-              autoPlay
-              loop
-              muted
-              playsInline
-              onError={(e) => {
-                console.error('Video failed to load:', videoUrl);
-                // You could set a fallback image here
-              }}
-            />
-          </motion.li>
-        ))}
-      </motion.ul>
+            src={videos[current]}
+            className="w-full h-full object-cover"
+            autoPlay
+            loop={false}
+            muted
+            playsInline
+            onEnded={handleEnded}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.5 }}
+          />
+        </AnimatePresence>
+      </motion.div>
     </div>
   );
 }
 
-// Add some sample videos or use placeholder
-const initialVideos = [
-  '/vfx1.mp4', 
-  '/vfx2.mp4', 
-  '/vfx3.mp4'
-];
+const initialVideos = ['/sv1.mp4', '/sv2.mp4', '/sv3.mp4', '/sv4.mp4'];
 
 function shuffle([...array]: string[]) {
   return array.sort(() => Math.random() - 0.5);
 }
-
-const spring: Transition = {
-  type: 'spring',
-  damping: 20,
-  stiffness: 300,
-};
