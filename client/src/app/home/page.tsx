@@ -36,7 +36,6 @@ const jaro = Jaro({
   display: 'swap',
 });
 
-// const emojis = ['/img1.webp', '/img2.jpg', '/img3.webp', '/img4.avif'];
 const emojis = ['/px1.jpg', '/px2.jpg', '/px3.jpg', '/px4.jpg'];
 
 const SERVICES = [
