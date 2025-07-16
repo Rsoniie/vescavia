@@ -107,9 +107,9 @@ const Navbar = () => {
         initial="hidden"
         animate={show ? 'visible' : 'hidden'}
         style={{ backgroundColor: bgColor, backdropFilter: blur }}
-        className="fixed top-0 left-0 right-0 z-50 px-6 py-3 flex justify-between items-center border-b border-purple-500/30 shadow-xl"
+        className="fixed top-0 left-0 right-0 z-50 px-6 py-3 flex justify-between items-center shadow-xl"
       >
-        <div className="absolute inset-0 bg-gradient-to-r from-purple-900/30 via-fuchsia-900/30 to-blue-900/30 opacity-80 pointer-events-none" />
+        <div className="absolute inset-0  opacity-80 pointer-events-none" />
         <motion.div
           variants={logoVariants}
           initial="hidden"
