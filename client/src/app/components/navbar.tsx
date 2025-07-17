@@ -109,7 +109,7 @@ const Navbar = () => {
         style={{ backgroundColor: bgColor, backdropFilter: blur }}
         className="fixed top-0 left-0 right-0 z-50 px-6 py-3 flex justify-between items-center shadow-xl"
       >
-        <div className="absolute inset-0  opacity-80 pointer-events-none" />
+        <div className="absolute inset-0 opacity-80 pointer-events-none" />
         <motion.div
           variants={logoVariants}
           initial="hidden"
@@ -118,11 +118,11 @@ const Navbar = () => {
           className="relative z-10"
         >
           <Link href="/" className="block focus:outline-none">
-            <span className="text-3xl font-bold bg-gradient-to-r from-purple-400 via-fuchsia-400 to-blue-400 bg-clip-text text-transparent">
+            <span className="text-3xl font-bold bg-gradient-to-r from-[var(--color-brand-primary)] via-[var(--color-brand-accent)] to-[var(--color-brand-secondary)] bg-clip-text text-transparent">
               Vescavia
             </span>
             <motion.span
-              className="absolute -inset-2 bg-gradient-to-r from-purple-600/30 via-fuchsia-600/30 to-blue-600/30 rounded-lg blur-md"
+              className="absolute -inset-2 bg-gradient-to-r from-[color-mix(in_srgb,var(--color-brand-primary)_60%,black)] via-[color-mix(in_srgb,var(--color-brand-accent)_60%,black)] to-[color-mix(in_srgb,var(--color-brand-secondary)_60%,black)] rounded-lg blur-md"
               animate={{ scale: [1, 1.1, 1], opacity: [0.4, 0.8, 0.4] }}
               transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
             />
@@ -142,13 +142,13 @@ const Navbar = () => {
               >
                 <Link
                   href={link.href}
-                  className="relative font-medium text-gray-200 hover:text-fuchsia-300 transition-colors duration-300 px-2 py-1"
+                  className="relative font-medium text-[var(--color-text-secondary)] hover:text-[var(--color-brand-accent)] transition-colors duration-300 px-2 py-1"
                 >
                   {link.name}
                   {isActive && (
                     <motion.span
                       layoutId="activeLink"
-                      className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-to-r from-purple-400 to-fuchsia-400 rounded-full"
+                      className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-to-r from-[var(--color-brand-primary)] to-[var(--color-brand-accent)] rounded-full"
                       transition={{
                         type: 'spring',
                         stiffness: 400,
@@ -157,7 +157,7 @@ const Navbar = () => {
                     />
                   )}
                   <motion.span
-                    className="absolute -inset-2 bg-gradient-to-r from-purple-600/20 to-fuchsia-600/20 rounded-lg opacity-0"
+                    className="absolute -inset-2 bg-gradient-to-r from-[color-mix(in_srgb,var(--color-brand-primary)_20%,black)] to-[color-mix(in_srgb,var(--color-brand-accent)_20%,black)] rounded-lg opacity-0"
                     whileHover={{ opacity: 1 }}
                     transition={{ duration: 0.2 }}
                   />
@@ -170,7 +170,7 @@ const Navbar = () => {
           onClick={() => setMenu(!menuOpen)}
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
-          className="md:hidden relative z-10 p-2 text-gray-200 hover:text-fuchsia-400 transition-colors"
+          className="md:hidden relative z-10 p-2 text-[var(--color-text-secondary)] hover:text-[var(--color-brand-accent)] transition-colors"
           aria-label="Toggle menu"
         >
           <motion.div
@@ -210,7 +210,7 @@ const Navbar = () => {
             className="fixed inset-0 z-40 md:hidden pt-20"
           >
             <motion.div
-              className="absolute inset-0 bg-black/70 backdrop-blur-sm"
+              className="absolute inset-0 bg-[color-mix(in_srgb,var(--color-black)_70%,transparent)] backdrop-blur-sm"
               onClick={() => setMenu(false)}
             />
             <motion.div
@@ -218,9 +218,9 @@ const Navbar = () => {
               initial="closed"
               animate="open"
               exit="closed"
-              className="absolute top-20 left-4 right-4 bg-gray-900/95 backdrop-blur-lg rounded-xl shadow-2xl border border-fuchsia-500/30 p-4 overflow-hidden"
+              className="absolute top-20 left-4 right-4 bg-[color-mix(in_srgb,var(--color-black)_95%,transparent)] backdrop-blur-lg rounded-xl shadow-2xl border border-[color-mix(in_srgb,var(--color-brand-accent)_30%,transparent)] p-4 overflow-hidden"
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-purple-900/30 via-fuchsia-900/30 to-blue-900/30 pointer-events-none" />
+              <div className="absolute inset-0 bg-gradient-to-br from-[color-mix(in_srgb,var(--color-brand-primary)_30%,black)] via-[color-mix(in_srgb,var(--color-brand-accent)_30%,black)] to-[color-mix(in_srgb,var(--color-brand-secondary)_30%,black)] pointer-events-none" />
               <div className="relative z-10 space-y-2">
                 {navLinks.map((link, i) => {
                   const isActive = pathname === link.href;
@@ -233,13 +233,13 @@ const Navbar = () => {
                       <Link
                         href={link.href}
                         onClick={() => setMenu(false)}
-                        className="block text-lg font-medium text-gray-200 hover:text-fuchsia-300 transition-colors py-3 px-4 rounded-lg hover:bg-fuchsia-900/30 relative"
+                        className="block text-lg font-medium text-[var(--color-text-secondary)] hover:text-[var(--color-brand-accent)] transition-colors py-3 px-4 rounded-lg hover:bg-[color-mix(in_srgb,var(--color-brand-accent)_30%,transparent)] relative"
                       >
                         {link.name}
                         {isActive && (
                           <motion.span
                             layoutId="mobileActiveLink"
-                            className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-purple-400 to-fuchsia-400 rounded-r-full"
+                            className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-[var(--color-brand-primary)] to-[var(--color-brand-accent)] rounded-r-full"
                             transition={{ type: 'spring', stiffness: 400 }}
                           />
                         )}

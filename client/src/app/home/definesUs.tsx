@@ -19,7 +19,7 @@ export default function DefinesUs() {
   return (
     <motion.div
       ref={ref}
-      className="min-h-[50vh] bg-white p-8 md:p-12 flex items-center justify-center overflow-hidden"
+      className="min-h-[50vh] bg-[var(--color-surface)] p-8 md:p-12 my-14 flex items-center justify-center overflow-hidden"
       initial={{ opacity: 0, y: 50 }}
       animate={loaded ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.8 }}
@@ -31,7 +31,7 @@ export default function DefinesUs() {
 
         <div className="w-full md:w-[70%] space-y-6">
           <motion.h1
-            className="text-3xl md:text-5xl font-bold text-[#11001D]"
+            className="text-3xl md:text-5xl font-bold text-[var(--color-text-inverse)]"
             initial={{ y: -20, opacity: 0 }}
             animate={loaded ? { y: 0, opacity: 1 } : {}}
             transition={{
@@ -50,27 +50,21 @@ export default function DefinesUs() {
             transition={{ delay: 0.5 }}
           >
             <motion.p
-              className="text-lg md:text-xl text-[#11001D] leading-relaxed"
+              className="text-lg md:text-xl text-[var(--color-text-inverse)] leading-relaxed"
               initial={{ x: 20, opacity: 0 }}
               animate={loaded ? { x: 0, opacity: 1 } : {}}
               transition={{ delay: 0.6 }}
             >
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat.
+              At Vescavia, we believe in the power of bold ideas and creative storytelling. Our team is passionate about transforming visions into viral realities, blending strategy, design, and technology to help brands stand out in a crowded digital world.
             </motion.p>
 
             <motion.p
-              className="text-lg md:text-xl text-[#11001D] leading-relaxed"
+              className="text-lg md:text-xl text-[var(--color-text-inverse)] leading-relaxed"
               initial={{ x: 20, opacity: 0 }}
               animate={loaded ? { x: 0, opacity: 1 } : {}}
               transition={{ delay: 0.7 }}
             >
-              Duis aute irure dolor in reprehenderit in voluptate velit esse
-              cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-              cupidatat non proident, sunt in culpa qui officia deserunt mollit
-              anim id est laborum.
+              We don’t just create content—we craft experiences that connect, engage, and inspire. From brand management to web development and viral ad campaigns, we’re dedicated to scaling your brand with authenticity, innovation, and measurable results.
             </motion.p>
           </motion.div>
         </div>

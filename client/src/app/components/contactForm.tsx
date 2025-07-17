@@ -221,31 +221,39 @@ const ContactForm: React.FC = () => {
       () => ({
         default: {
           scale: 1,
-          boxShadow: '0 0 0 0px rgba(168, 85, 247, 0)',
-          borderColor: 'rgba(255, 255, 255, 0.15)',
-          backgroundColor: 'rgba(17, 0, 29, 0.6)',
+          boxShadow:
+            '0 0 0 0px color-mix(in_srgb,var(--color-brand-primary)_0%,transparent)',
+          borderColor:
+            'color-mix(in_srgb,var(--color-text-primary)_15%,transparent)',
+          backgroundColor:
+            'color-mix(in_srgb,var(--color-background)_60%,transparent)',
           y: 0,
         },
         focused: {
           scale: 1.02,
           boxShadow:
-            '0 0 0 2px rgba(168, 85, 247, 0.6), 0 0 25px rgba(168, 85, 247, 0.3), 0 10px 20px rgba(0, 0, 0, 0.2)',
-          borderColor: 'rgba(168, 85, 247, 0.9)',
-          backgroundColor: 'rgba(17, 0, 29, 0.9)',
+            '0 0 0 2px color-mix(in_srgb,var(--color-brand-primary)_60%,transparent), 0 0 25px color-mix(in_srgb,var(--color-brand-primary)_30%,transparent), 0 10px 20px color-mix(in_srgb,black_20%,transparent)',
+          borderColor:
+            'color-mix(in_srgb,var(--color-brand-primary)_90%,transparent)',
+          backgroundColor:
+            'color-mix(in_srgb,var(--color-background)_90%,transparent)',
           y: -2,
           transition: { duration: 0.3, ease: 'easeOut' },
         },
         filled: {
-          borderColor: 'rgba(34, 197, 94, 0.7)',
+          borderColor:
+            'color-mix(in_srgb,var(--color-success)_70%,transparent)',
           boxShadow:
-            '0 0 0 1px rgba(34, 197, 94, 0.4), 0 0 15px rgba(34, 197, 94, 0.1)',
-          backgroundColor: 'rgba(17, 0, 29, 0.8)',
+            '0 0 0 1px color-mix(in_srgb,var(--color-success)_40%,transparent), 0 0 15px color-mix(in_srgb,var(--color-success)_10%,transparent)',
+          backgroundColor:
+            'color-mix(in_srgb,var(--color-background)_80%,transparent)',
         },
         error: {
-          borderColor: 'rgba(239, 68, 68, 0.8)',
+          borderColor: 'color-mix(in_srgb,var(--color-error)_80%,transparent)',
           boxShadow:
-            '0 0 0 2px rgba(239, 68, 68, 0.4), 0 0 15px rgba(239, 68, 68, 0.2)',
-          backgroundColor: 'rgba(29, 0, 0, 0.8)',
+            '0 0 0 2px color-mix(in_srgb,var(--color-error)_40%,transparent), 0 0 15px color-mix(in_srgb,var(--color-error)_20%,transparent)',
+          backgroundColor:
+            'color-mix(in_srgb,var(--color-error)_80%,transparent)',
           x: [-2, 2, -2, 2, 0],
           transition: { duration: 0.4 },
         },
@@ -257,13 +265,14 @@ const ContactForm: React.FC = () => {
     () => ({
       default: {
         scale: 1,
-        color: 'rgba(255, 255, 255, 0.7)',
+        color: 'color-mix(in_srgb,var(--color-text-primary)_70%,transparent)',
         textShadow: '0 0 0 transparent',
       },
       focused: {
         scale: 1.05,
-        color: 'rgba(168, 85, 247, 1)',
-        textShadow: '0 0 10px rgba(168, 85, 247, 0.5)',
+        color: 'var(--color-brand-primary)',
+        textShadow:
+          '0 0 10px color-mix(in_srgb,var(--color-brand-primary)_50%,transparent)',
         transition: { duration: 0.3 },
       },
     }),
@@ -271,7 +280,13 @@ const ContactForm: React.FC = () => {
   );
 
   const funkyColors: string[] = useMemo(
-    () => ['#8b5cf6', '#ec4899', '#3b82f6', '#10b981', '#f59e0b'],
+    () => [
+      'var(--color-purple-500)',
+      'var(--color-pink-500)',
+      'var(--color-blue-500)',
+      'var(--color-green-500)',
+      'var(--color-yellow-500)',
+    ],
     [],
   );
 
