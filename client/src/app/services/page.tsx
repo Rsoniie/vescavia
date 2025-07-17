@@ -38,7 +38,7 @@ export default function ServicesPage() {
   ];
 
   return (
-    <div className="bg-[#11001D] text-white min-h-screen w-full">
+    <div className="bg-[var(--color-background)] text-[var(--color-text-primary)] min-h-screen w-full">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <Navbar />
         <main className="text-center">
@@ -54,7 +54,7 @@ export default function ServicesPage() {
               <Link
                 key={index}
                 href={service.href || '#'}
-                className="group bg-[#1D0B2E] rounded-xl transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl overflow-hidden relative min-h-[320px] sm:min-h-[360px] md:min-h-[400px]"
+                className="group bg-[var(--color-background-dark)] rounded-xl transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl overflow-hidden relative min-h-[320px] sm:min-h-[360px] md:min-h-[400px]"
               >
                 <div className="absolute inset-0 z-0 transform group-hover:scale-105 transition-transform duration-500">
                   <Image
@@ -64,7 +64,7 @@ export default function ServicesPage() {
                     className="object-cover"
                     priority={index < 2}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#1D0B2E] via-[#1D0B2E]/50 to-transparent"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-background-dark)] via-[color-mix(in_srgb,var(--color-background-dark)_50%,transparent)] to-transparent"></div>
                 </div>
                 <div className="relative z-10 h-full flex flex-col justify-end p-6 sm:p-8">
                   <h2
