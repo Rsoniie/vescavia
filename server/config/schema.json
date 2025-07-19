@@ -1,12 +1,22 @@
 {
-        "testing": {
-            "schema": {
-            "url": "/api/testing",
-            "body": {
-                "type": "object",
-                "properties": {}
-            }
-        },
-            "joiSchemaName": "testingSchema"
-        }
+  "testing": {
+    "schema": {
+      "url": "/api/testing",
+      "body": {
+        "type": "object",
+        "properties": {}
+      }
+    },
+    "joiSchemaName": "testing"
+  },
+  "email-services": {
+    "schema": {
+      "url": "/api/emailService",
+      "body": {
+        "type": "object",
+        "properties": {}
+      }
+    },
+    "joiSchemaName": "email-service-schema"
+  }
 }

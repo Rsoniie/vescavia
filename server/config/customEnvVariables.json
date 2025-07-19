@@ -1,15 +1,18 @@
 {
-    "host": "HOST",
-    "port" : "PORT",
-    "db": {
-        "development": {
-            "mongoUri": "MONGO_URI_DEV"
-        },
-        "production": {
-            "mongoUri": "MONGO_URI_PROD"  
-        }         
+  "host": "HOST",
+  "port": "PORT",
+  "db": {
+    "development": {
+      "mongoUri": "MONGO_URI_DEV"
     },
-    "independentEnvs": {
-        
+    "production": {
+      "mongoUri": "MONGO_URI_PROD"
     }
+  },
+  "independentEnvs": {
+    "emailUser": "EMAIL_USER",
+    "emailPass": "EMAIL_PASS",
+    "appPassword": "APP_PASSWORD",
+    "usersToNotify": "EMAILS"
+  }
 }
