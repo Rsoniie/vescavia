@@ -1,4 +1,62 @@
 @import 'tailwindcss';
+
+:root {
+  /* Primitive Color Tokens */
+  --color-purple-500: #8b5cf6;
+  --color-pink-500: #ec4899;
+  --color-blue-500: #3b82f6;
+  --color-green-500: #10b981;
+  --color-yellow-500: #f59e0b;
+  --color-orange-500: #fe6427;
+  --color-fuchsia-300: #f0abfc;
+  --color-fuchsia-400: #e879f9;
+  --color-fuchsia-900: #701a75;
+  --color-gray-100: #f3f4f6;
+  --color-gray-200: #e5e7eb;
+  --color-gray-300: #d1d5db;
+  --color-gray-800: #1f2937;
+  --color-black: #11001d;
+  --color-dark-bg: #1d0b2e;
+  --color-white: #fff;
+
+  /* Semantic Color Tokens */
+  --color-brand-primary: var(--color-purple-500);
+  --color-brand-accent: var(--color-pink-500);
+  --color-brand-secondary: var(--color-blue-500);
+  --color-background: var(--color-black);
+  --color-background-light: var(--color-gray-100);
+  --color-background-dark: var(--color-dark-bg);
+  --color-surface: var(--color-white);
+  --color-text-primary: var(--color-white);
+  --color-text-secondary: var(--color-gray-200);
+  --color-text-muted: var(--color-gray-300);
+  --color-text-inverse: var(--color-black);
+  --color-border: var(--color-fuchsia-400);
+  --color-success: var(--color-green-500);
+  --color-warning: var(--color-yellow-500);
+  --color-error: var(--color-orange-500);
+
+  /* Font Families (set by next/font in _app/layout) */
+  --font-inter: 'Inter', sans-serif;
+  --font-jaro: 'Jaro', sans-serif;
+  --font-pacifico: 'Pacifico', cursive;
+  --font-oswald: 'Oswald', sans-serif;
+  --font-lora: 'Lora', serif;
+  --font-indie: 'Indie Flower', cursive;
+  
+
+  /* Font Sizes */
+  --font-size-base: 1rem;
+  --font-size-lg: 1.25rem;
+  --font-size-xl: 2rem;
+  --font-size-h1: 3rem;
+  --font-size-h2: 2.25rem;
+  --font-size-h3: 1.5rem;
+  --font-size-h4: 1.25rem;
+  --font-size-h5: 1rem;
+  --font-size-h6: 0.875rem;
+}
+
 @keyframes marquee {
   0% {
     transform: translateX(0%);

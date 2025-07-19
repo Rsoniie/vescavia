@@ -94,7 +94,7 @@ const faqs = [
 
 export default function BrandManagementPage() {
   return (
-    <div className="min-h-screen bg-[#11001D] text-white w-full">
+    <div className="min-h-screen bg-[var(--color-background)] text-[var(--color-text-primary)] w-full">
       <SEO
         title="Brand Management Services"
         description="Vescavia: Bold brand management for modern businesses."
@@ -103,10 +103,10 @@ export default function BrandManagementPage() {
       {/* Hero Section */}
       <section className="relative flex flex-col lg:flex-row items-center justify-between max-w-7xl mx-auto pt-32 pb-16 px-4 sm:px-8">
         <div className="flex-1 z-10 text-left">
-          <h1 className="font-jaro text-5xl sm:text-6xl md:text-7xl lg:text-8xl bg-gradient-to-r from-purple-400 via-fuchsia-400 to-blue-400 bg-clip-text text-transparent font-bold mb-6 leading-tight">
+          <h1 className="font-jaro text-5xl sm:text-6xl md:text-7xl lg:text-8xl bg-gradient-to-r from-[var(--color-brand-primary)] via-[var(--color-brand-accent)] to-[var(--color-brand-secondary)] bg-clip-text text-transparent font-bold mb-6 leading-tight">
             Brand Management
           </h1>
-          <p className="text-lg md:text-2xl text-gray-200 max-w-xl mb-8">
+          <p className="text-lg md:text-2xl text-[var(--color-text-secondary)] max-w-xl mb-8">
             We build, elevate, and protect brands that{' '}
             <span className="text-fuchsia-300 font-bold">stand out</span> and{' '}
             <span className="text-blue-300 font-bold">endure</span>.
@@ -159,15 +159,17 @@ export default function BrandManagementPage() {
           {processSteps.map((step, idx) => (
             <div
               key={idx}
-              className="bg-[#1D0B2E] rounded-2xl shadow-xl border border-fuchsia-400/10 p-6 flex flex-col items-center text-center"
+              className="bg-[var(--color-background-dark)] rounded-2xl shadow-xl border border-[color-mix(in_srgb,var(--color-border)_10%,transparent)] p-6 flex flex-col items-center text-center"
             >
               <div className="text-4xl mb-4">
                 {['🔍', '🧭', '🎨', '🚀'][idx]}
               </div>
-              <h3 className="font-jaro text-2xl font-bold mb-2 bg-gradient-to-r from-purple-200 via-fuchsia-200 to-blue-200 bg-clip-text text-transparent">
+              <h3 className="font-jaro text-2xl font-bold mb-2 bg-gradient-to-r from-[color-mix(in_srgb,var(--color-brand-primary)_80%,white)] via-[color-mix(in_srgb,var(--color-brand-accent)_80%,white)] to-[color-mix(in_srgb,var(--color-brand-secondary)_80%,white)] bg-clip-text text-transparent">
                 {step.title}
               </h3>
-              <p className="text-gray-300 text-base">{step.description}</p>
+              <p className="text-[var(--color-text-muted)] text-base">
+                {step.description}
+              </p>
             </div>
           ))}
         </div>
@@ -182,7 +184,7 @@ export default function BrandManagementPage() {
           {brandServices.map((service, idx) => (
             <div
               key={idx}
-              className="bg-[#1D0B2E] rounded-2xl shadow-xl border border-fuchsia-400/10 hover:border-fuchsia-400/40 transition-all duration-300 overflow-hidden"
+              className="bg-[var(--color-background-dark)] rounded-2xl shadow-xl border border-[color-mix(in_srgb,var(--color-border)_10%,transparent)] hover:border-[color-mix(in_srgb,var(--color-border)_40%,transparent)] transition-all duration-300 overflow-hidden"
             >
               <ServiceCard {...service} />
             </div>
@@ -235,11 +237,11 @@ export default function BrandManagementPage() {
         <h2 className="font-jaro text-3xl font-bold mb-6 bg-gradient-to-r from-purple-300 via-fuchsia-300 to-blue-300 bg-clip-text text-transparent text-center">
           See Our Brand Impact
         </h2>
-        <div className="rounded-2xl overflow-hidden shadow-2xl border border-fuchsia-400/10 bg-gradient-to-br from-purple-900/40 via-fuchsia-900/40 to-blue-900/40">
+        <div className="rounded-2xl overflow-hidden shadow-2xl border border-[color-mix(in_srgb,var(--color-border)_10%,transparent)] bg-gradient-to-br from-[color-mix(in_srgb,var(--color-brand-primary)_40%,black)] via-[color-mix(in_srgb,var(--color-brand-accent)_40%,black)] to-[color-mix(in_srgb,var(--color-brand-secondary)_40%,black)]">
           {/* Placeholder for creative showcase */}
           <div className="flex flex-col items-center justify-center py-16">
             <span className="text-5xl mb-4">🏆✨</span>
-            <p className="text-lg text-gray-200 max-w-xl text-center">
+            <p className="text-lg text-[var(--color-text-secondary)] max-w-xl text-center">
               Your brand could be here! We turn ideas into iconic brands.
             </p>
           </div>
@@ -251,7 +253,7 @@ export default function BrandManagementPage() {
         <h2 className="font-jaro text-3xl font-bold mb-6 bg-gradient-to-r from-purple-300 via-fuchsia-300 to-blue-300 bg-clip-text text-transparent text-center">
           Ready to Build Your Brand?
         </h2>
-        <div className="bg-[#1D0B2E] rounded-2xl shadow-2xl border border-fuchsia-400/10 p-8">
+        <div className="bg-[var(--color-background-dark)] rounded-2xl shadow-2xl border border-[color-mix(in_srgb,var(--color-border)_10%,transparent)] p-8">
           <ContactForm />
         </div>
       </section>

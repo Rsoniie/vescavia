@@ -1,7 +1,7 @@
 // app/about/page.tsx
 import { Metadata } from 'next';
-import Navbar from '../components/Navbar';
-import TeamSection from '../components/TeamSection';
+import Navbar from '@/app/components/navbar';
+// import TeamSection from '@/app/components/team-section';
 
 export const metadata: Metadata = {
   title: 'About Us | Our Creative Team',

@@ -1,6 +1,5 @@
 'use client';
 
-
 import { motion, AnimatePresence } from 'framer-motion';
 
 import React from 'react';
@@ -54,7 +53,7 @@ export default function InfoCard({
       variants={containerVariants}
       initial="initial"
       animate={isHovered ? 'hovered' : 'initial'}
-      className={`p-6 rounded-2xl backdrop-blur-md border border-white/10 relative overflow-hidden transition-all duration-300 ease-in-out bg-[#1a012a]/50`}
+      className={`p-6 rounded-2xl backdrop-blur-md border border-[color-mix(in_srgb,var(--color-text-primary)_10%,transparent)] relative overflow-hidden transition-all duration-300 ease-in-out bg-[color-mix(in_srgb,var(--color-background-dark)_50%,transparent)]`}
     >
       {/* Icon */}
       <motion.div
