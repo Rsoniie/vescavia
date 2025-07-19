@@ -2,10 +2,13 @@
   "dependencies": {
     "config": "^4.0.0",
     "cors": "^2.8.5",
+    "dotenv": "^17.2.0",
     "fastify": "^5.4.0",
     "joi": "^17.13.3",
-    "mongoose": "^8.16.1",
-    "nodemon": "^3.1.10"
+    "mongoose": "^8.16.3",
+    "nodemailer": "^7.0.5",
+    "nodemon": "^3.1.10",
+    "prettier": "^3.6.2"
   },
   "name": "server",
   "version": "1.0.0",
@@ -14,7 +17,9 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon app.js"
+    "start": "nodemon app.js",
+    "format": "prettier --write \"**/*.{js,json,md}\"",
+    "dev": "fuser -k 3000/tcp || true && nodemon src/index.js"
   },
   "author": "Roshan, Safdar, Pranjal",
   "license": "ISC"

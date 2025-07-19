@@ -1,4 +1,4 @@
 const testing = async () => {
-    return "Working fine";
-}
+  return "Working fine";
+};
 export default testing;
