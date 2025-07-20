@@ -18,7 +18,13 @@ export default function AnimatedBackground({
   const orbScale = useTransform(smoothScroll, [0, 1], [1, 1.1]);
 
   const funkyColors = useMemo(
-    () => ['#8b5cf6', '#ec4899', '#3b82f6', '#10b981', '#f59e0b'],
+    () => [
+      'var(--color-purple-500)',
+      'var(--color-pink-500)',
+      'var(--color-blue-500)',
+      'var(--color-green-500)',
+      'var(--color-yellow-500)',
+    ],
     [],
   );
 

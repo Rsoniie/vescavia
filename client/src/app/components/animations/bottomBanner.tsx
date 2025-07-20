@@ -12,6 +12,8 @@ interface MarqueeBannerProps {
   pauseOnHover?: boolean;
   thickness?: 'thin' | 'medium' | 'thick';
   emojiVariants?: string[][];
+  icons?: React.ReactNode[]; // <-- add icons prop
+  bgColors?: string[]; // <-- add bgColors prop
 }
 
 const DEFAULT_EMOJIS = [
@@ -30,6 +32,8 @@ export default function MarqueeBanner({
   pauseOnHover = true,
   thickness = 'medium',
   emojiVariants = DEFAULT_EMOJIS,
+  icons,
+  bgColors,
 }: MarqueeBannerProps) {
   const [isPaused, setIsPaused] = useState(false);
   const [currentEmojis, setCurrentEmojis] = useState<string[]>([]);
@@ -59,13 +63,41 @@ export default function MarqueeBanner({
     document.documentElement.style.setProperty('--speed', `${speed}s`);
   }, [speed]);
 
-  const enhancedMessages = messages.map(
-    (msg, i) => `${currentEmojis[i] || DEFAULT_EMOJIS[i][0]} ${msg}`,
+  // If icons are provided, use them; otherwise, use emojis
+  const enhancedMessages = messages.map((msg, i) =>
+    icons && icons[i] ? (
+      <span
+        className={`flex items-center justify-center mx-2 h-full w-full relative`}
+        key={i}
+      >
+        <span
+          className={`absolute inset-0 ${bgColors && bgColors[i] ? bgColors[i] : ''} h-full w-full`}
+          style={{ zIndex: 0 }}
+        />
+        <span className="relative z-10 flex items-center px-8 py-2 text-black">
+          {icons[i]}
+          <span>{msg}</span>
+        </span>
+      </span>
+    ) : (
+      <span
+        className={`flex items-center justify-center mx-2 h-full w-full relative`}
+        key={i}
+      >
+        <span
+          className={`absolute inset-0 ${bgColors && bgColors[i] ? bgColors[i] : ''} h-full w-full`}
+          style={{ zIndex: 0 }}
+        />
+        <span className="relative z-10 flex items-center px-8 py-2 text-black">
+          {currentEmojis[i] || DEFAULT_EMOJIS[i][0]} {msg}
+        </span>
+      </span>
+    ),
   );
 
   return (
     <div
-      className={`w-full overflow-hidden ${backgroundColor} ${className}`}
+      className={`w-full overflow-hidden ${className}`}
       onMouseEnter={() => pauseOnHover && setIsPaused(true)}
       onMouseLeave={() => pauseOnHover && setIsPaused(false)}
     >
@@ -78,12 +110,7 @@ export default function MarqueeBanner({
             aria-hidden={setIndex > 0}
           >
             {enhancedMessages.map((message, index) => (
-              <span
-                key={`msg-${setIndex}-${index}`}
-                className="mx-8 whitespace-nowrap"
-              >
-                {message}
-              </span>
+              <span key={`msg-${setIndex}-${index}`}>{message}</span>
             ))}
           </div>
         ))}
