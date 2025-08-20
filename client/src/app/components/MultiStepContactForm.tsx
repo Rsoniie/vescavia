@@ -101,6 +101,7 @@ export default function MultiStepContactForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [direction, setDirection] = useState(0);
+  const [hasUserInteracted, setHasUserInteracted] = useState(false);
   const inputRef = useRef<
     HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
   >(null);
@@ -109,10 +110,10 @@ export default function MultiStepContactForm() {
   const progress = (currentStep / steps.length) * 100;
 
   useEffect(() => {
-    if (inputRef.current && !isSubmitted) {
+    if (inputRef.current && !isSubmitted && hasUserInteracted) {
       inputRef.current.focus();
     }
-  }, [currentStep, isSubmitted]);
+  }, [currentStep, isSubmitted, hasUserInteracted]);
 
   const validateField = (
     field: keyof FormData,
@@ -139,6 +140,7 @@ export default function MultiStepContactForm() {
   };
 
   const handleInputChange = (value: string | string[]) => {
+    setHasUserInteracted(true);
     const field = currentStepData.field;
     setFormData((prev) => ({ ...prev, [field]: value }));
 
@@ -149,6 +151,7 @@ export default function MultiStepContactForm() {
   };
 
   const handleServiceSelection = (service: string) => {
+    setHasUserInteracted(true);
     const currentServices = formData.serviceType;
     let newServices;
 
@@ -170,6 +173,7 @@ export default function MultiStepContactForm() {
   };
 
   const handleNext = () => {
+    setHasUserInteracted(true);
     const field = currentStepData.field;
     const value = formData[field];
     const error = validateField(field, value);
@@ -186,6 +190,7 @@ export default function MultiStepContactForm() {
   };
 
   const handleBack = () => {
+    setHasUserInteracted(true);
     if (currentStep > 1) {
       setDirection(-1);
       setCurrentStep((prev) => prev - 1);
