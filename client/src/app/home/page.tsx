@@ -21,6 +21,17 @@ const MultiStepContactForm = dynamic(
   },
 );
 
+// Scroll to contact form function
+const scrollToContactForm = () => {
+  const contactForm = document.getElementById('contact-form');
+  if (contactForm) {
+    contactForm.scrollIntoView({ 
+      behavior: 'smooth',
+      block: 'start'
+    });
+  }
+};
+
 import {
   FaRegLightbulb,
   FaVideo,
@@ -180,12 +191,12 @@ export default function Home() {
                 conversion-crushing ads.
               </p>
               <div className="hidden lg:block">
-                <Button textContent="Get Started" />
+                <Button textContent="Lets Do this" onClick={scrollToContactForm} />
               </div>
             </main>
           </section>
           <div className="lg:hidden mb-6 flex justify-center">
-            <Button textContent="Get Started" />
+            <Button textContent="Lets Do this" onClick={scrollToContactForm} />
           </div>
         </div>
       </div>

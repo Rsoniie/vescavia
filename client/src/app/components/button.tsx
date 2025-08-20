@@ -99,6 +99,7 @@ interface ButtonProps {
     | 'gradient'
     | 'accent';
   size?: 'sm' | 'md' | 'lg';
+  onClick?: () => void;
 }
 
 const Button = ({
@@ -106,6 +107,7 @@ const Button = ({
   className = '',
   variant = 'primary',
   size = 'md',
+  onClick,
 }: ButtonProps) => {
   // Size variants using your design tokens
   const sizeClasses = {
@@ -206,6 +208,7 @@ const Button = ({
         active:scale-95
         ${className}
       `}
+      onClick={onClick}
       aria-label={textContent}
     >
       {textContent}
