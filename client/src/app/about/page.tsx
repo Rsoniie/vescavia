@@ -1,7 +1,7 @@
 // app/about/page.tsx
 import { Metadata } from 'next';
 import Navbar from '@/app/components/navbar';
-// import TeamSection from '@/app/components/team-section';
+import AboutSection from '../components/AboutSection';
 
 export const metadata: Metadata = {
   title: 'About Us | Our Creative Team',
@@ -28,38 +28,13 @@ export const metadata: Metadata = {
   },
 };
 
-const teamMembersData = [
-  {
-    name: 'Batla',
-    image: '/images/about/person3.png',
-    color: 'from-purple-600 via-pink-500 to-yellow-400',
-    bio: 'Frontend wizard with a passion for pixel-perfect designs. Loves React and smooth animations.',
-    role: 'Lead UI Developer',
-  },
-  {
-    name: 'Saifu',
-    image: '/images/about/person3.png',
-    color: 'from-green-400 via-blue-500 to-purple-600',
-    bio: 'Backend architect who makes servers sing. Coffee enthusiast and database whisperer.',
-    role: 'Backend Engineer',
-  },
-  {
-    name: 'Pranjal',
-    image: '/images/about/person3.png',
-    color: 'from-yellow-400 via-red-500 to-pink-600',
-    bio: 'Full-stack magician who bridges frontend and backend. Loves solving complex problems with elegant solutions.',
-    role: 'Senior Full-Stack Developer',
-  },
-];
-
 export default function About() {
   return (
     <>
-      <Navbar className="bg-gradient-to-b from-[#130018] to-[#1d003d]" />
-      <TeamSection
-        teamMembers={teamMembersData}
-        title="Meet Our Team"
-        description="We mix code and creativity to build mind-blowing digital experiences. Think animations, bold branding, juicy designs — that kind of awesome."
+      <Navbar />
+      <AboutSection
+        title="About Us"
+        description="We are a dynamic team of creators, innovators, and strategists dedicated to transforming bold ideas into extraordinary digital experiences that drive real business results."
       />
     </>
   );
