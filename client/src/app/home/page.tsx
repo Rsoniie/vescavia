@@ -9,11 +9,17 @@ import dynamic from 'next/dynamic';
 
 const ScrollUpAnimation = dynamic(
   () => import('../components/animations/scrollAnimation1'),
-  { ssr: false }
+  { ssr: false },
 );
 const DefinesUsPage = dynamic(() => import('./definesUs'), {
   loading: () => <div className="h-20 bg-gray-100 animate-pulse" />,
 });
+const MultiStepContactForm = dynamic(
+  () => import('../components/MultiStepContactForm'),
+  {
+    loading: () => <div className="h-20 bg-gray-100 animate-pulse" />,
+  },
+);
 
 import {
   FaRegLightbulb,
@@ -138,7 +144,7 @@ export default function Home() {
       thickness: 'medium' as const,
       pauseOnHover: true,
     }),
-    []
+    [],
   );
 
   useEffect(() => {
@@ -178,7 +184,7 @@ export default function Home() {
               </div>
             </main>
           </section>
-          <div className="block lg:hidden mb-6 flex justify-center">
+          <div className="lg:hidden mb-6 flex justify-center">
             <Button textContent="Get Started" />
           </div>
         </div>
@@ -190,6 +196,7 @@ export default function Home() {
 
       <ScrollUpAnimation />
       <DefinesUsPage />
+      <MultiStepContactForm />
     </>
   );
 }

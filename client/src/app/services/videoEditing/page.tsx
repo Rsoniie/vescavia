@@ -1,6 +1,5 @@
 import Navbar from '../../components/navbar';
 import Button from '../../components/button';
-import ContactForm from '../../components/contactForm';
 import DynamicEmoji from '../../components/animations/dynamicComp';
 import ServiceCard from '../../components/ServiceCard';
 import SEO from '../../components/SEO';
@@ -243,16 +242,6 @@ export default function VideoEditingPage() {
               Your video could be here! We turn footage into viral stories.
             </p>
           </div>
-        </div>
-      </section>
-
-      {/* Contact Section */}
-      <section className="max-w-3xl mx-auto px-4 sm:px-8 py-12">
-        <h2 className="font-jaro text-3xl font-bold mb-6 bg-gradient-to-r from-purple-300 via-fuchsia-300 to-blue-300 bg-clip-text text-transparent text-center">
-          Ready to Edit Like a Pro?
-        </h2>
-        <div className="bg-[#1D0B2E] rounded-2xl shadow-2xl border border-fuchsia-400/10 p-8">
-          <ContactForm />
         </div>
       </section>
     </div>
