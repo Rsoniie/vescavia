@@ -9,11 +9,28 @@ import dynamic from 'next/dynamic';
 
 const ScrollUpAnimation = dynamic(
   () => import('../components/animations/scrollAnimation1'),
-  { ssr: false }
+  { ssr: false },
 );
 const DefinesUsPage = dynamic(() => import('./definesUs'), {
   loading: () => <div className="h-20 bg-gray-100 animate-pulse" />,
 });
+const MultiStepContactForm = dynamic(
+  () => import('../components/MultiStepContactForm'),
+  {
+    loading: () => <div className="h-20 bg-gray-100 animate-pulse" />,
+  },
+);
+
+// Scroll to contact form function
+const scrollToContactForm = () => {
+  const contactForm = document.getElementById('contact-form');
+  if (contactForm) {
+    contactForm.scrollIntoView({ 
+      behavior: 'smooth',
+      block: 'start'
+    });
+  }
+};
 
 import {
   FaRegLightbulb,
@@ -138,7 +155,7 @@ export default function Home() {
       thickness: 'medium' as const,
       pauseOnHover: true,
     }),
-    []
+    [],
   );
 
   useEffect(() => {
@@ -154,8 +171,8 @@ export default function Home() {
           <section className="w-full flex flex-col justify-center p-6 sm:p-8 md:p-12">
             <main className="text-left">
               <h1 className={HEADING_CLASSES} style={{ fontSize: '3rem' }}>
-                <span className="block text-4xl sm:text-5xl md:text-6xl lg:text-7xl">
-                  Vescavia:
+                <span className="block text-4xl sm:text-5xl md:text-6xl lg:text-7xl lowercase">
+                  vescavia:
                   <span className="ml-2 ">
                     where Ideas turn into{' '}
                     <AnimatePresence mode="wait">
@@ -174,12 +191,12 @@ export default function Home() {
                 conversion-crushing ads.
               </p>
               <div className="hidden lg:block">
-                <Button textContent="Get Started" />
+                <Button textContent="Lets Do this" onClick={scrollToContactForm} />
               </div>
             </main>
           </section>
-          <div className="block lg:hidden mb-6 flex justify-center">
-            <Button textContent="Get Started" />
+          <div className="lg:hidden mb-6 flex justify-center">
+            <Button textContent="Lets Do this" onClick={scrollToContactForm} />
           </div>
         </div>
       </div>
@@ -190,6 +207,7 @@ export default function Home() {
 
       <ScrollUpAnimation />
       <DefinesUsPage />
+      <MultiStepContactForm />
     </>
   );
 }

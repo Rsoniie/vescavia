@@ -1,457 +1,609 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronLeft, ChevronRight, Star, Quote, Sparkles } from 'lucide-react';
 import Navbar from '../components/navbar';
+import Footer from '../components/Footer';
+import {
+  FaPlay,
+  FaGlobe,
+  FaBullhorn,
+  FaPalette,
+  FaRocket,
+  FaEye,
+  FaHeart,
+  FaShareAlt,
+  FaExternalLinkAlt,
+} from 'react-icons/fa';
 
-type Testimonial = {
+interface Project {
   id: number;
-  quote: string;
-  name: string;
-  designation: string;
-  company: string;
-  avatar: string;
-  rating: number;
-  color: string;
-};
+  title: string;
+  category: string;
+  description: string;
+  technologies: string[];
+  image: string;
+  video?: string;
+  liveUrl?: string;
+  stats?: {
+    views?: string;
+    engagement?: string;
+    growth?: string;
+  };
+  client: string;
+  year: string;
+}
 
-const testimonials: Testimonial[] = [
+const projects: Project[] = [
   {
     id: 1,
-    quote: 'This product made our team dance with joy! The interface is so smooth, even our grandma could use it.',
-    name: 'Sarah Chen',
-    designation: 'Product Magician',
-    company: 'TechFlow Inc.',
-    avatar: 'https://images.unsplash.com/photo-1494790108755-2616b332e234?w=150&h=150&fit=crop&crop=face',
-    rating: 5,
-    color: 'from-purple-400 to-pink-500'
+    title: 'The Nikah Nest',
+    category: 'Web Development & Design',
+    description:
+      'Built a comprehensive Islamic wedding vendor platform connecting Muslim couples with halal-certified vendors across India. Features include vendor profiles, search functionality, booking system, and community reviews.',
+    technologies: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Framer Motion'],
+    image: '/images/work/nikah-nest.png',
+    liveUrl: 'https://thenikahnest.com',
+    stats: {
+      views: '37+',
+      engagement: '5.0★',
+      growth: '20+',
+    },
+    client: 'The Nikah Nest',
+    year: '2025',
   },
   {
     id: 2,
-    quote: "Boom! 40% efficiency boost right out the gate. Our competitors are crying in their coffee.",
-    name: 'Michael Rodriguez',
-    designation: 'Chief Hype Officer',
-    company: 'InnovateLabs',
-    avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face',
-    rating: 5,
-    color: 'from-amber-400 to-orange-500'
+    title: 'NBC 2023 Conference',
+    category: 'Web Development & Design',
+    description:
+      'Developed a professional conference website for National Bioengineering Conference 2023 at NIT Rourkela. Features include registration system, speaker profiles, program schedule, image carousel, and hybrid event management.',
+    technologies: ['HTML', 'CSS', 'JavaScript', 'Netlify'],
+    image: '/images/work/nbc-2023.png',
+    liveUrl: 'https://nbc-2023.netlify.app/',
+    stats: {
+      views: '1000+',
+      engagement: '100%',
+      growth: 'Hybrid',
+    },
+    client: 'NIT Rourkela',
+    year: '2023',
   },
   {
     id: 3,
-    quote: "So good it's almost suspicious. Like finding money in your old jeans, but every day.",
-    name: 'Emily Johnson',
-    designation: 'Operations Wizard',
-    company: 'GrowthCorp',
-    avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face',
-    rating: 5,
-    color: 'from-emerald-400 to-teal-500'
+    title: 'X Audio Video Downloader',
+    category: 'Web Development & Design',
+    description:
+      'Built a fast and secure online tool for downloading videos and GIFs from Twitter/X. Features include URL extraction, MP4 conversion, mobile-friendly interface, and no registration required. Supports multiple formats and quality options.',
+    technologies: ['JavaScript', 'API Integration', 'Netlify', 'Responsive Design'],
+    image: '/images/work/xaudio.png',
+    liveUrl: 'https://xaudiovideodownloader.netlify.app/',
+    stats: {
+      views: 'Free',
+      engagement: 'Fast',
+      growth: '10s delay',
+    },
+    client: 'X Audio Video Downloader',
+    year: '2024',
   },
   {
     id: 4,
-    quote: "ROI? More like RO-YAY! We're making money moves thanks to this platform.",
-    name: 'David Park',
-    designation: 'CEO & DJ',
-    company: 'StartupVision',
-    avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face',
-    rating: 5,
-    color: 'from-blue-400 to-cyan-500'
-  },
-  {
-    id: 5,
-    quote: "Our analytics went from 'meh' to 'WOWZA!' Overnight. No cap.",
-    name: 'Lisa Wang',
-    designation: 'Marketing Guru',
-    company: 'BrandForward',
-    avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&h=150&fit=crop&crop=face',
-    rating: 5,
-    color: 'from-rose-400 to-fuchsia-500'
-  },
+    title: 'IPDIMS 2024 Conference',
+    category: 'Web Development & Design',
+    description:
+      'Developed a comprehensive conference website for the 6th International Conference on Industrial Product Design and Intelligent Manufacturing Systems at NIT Rourkela. Features include paper submission portal, registration system, Springer proceedings publication, speaker profiles, and accommodation management for 1,500+ participants.',
+    technologies: ['Next.js', 'React', 'TypeScript', 'Vercel'],
+    image: '/images/work/ipdims.png',
+    liveUrl: 'https://conference-website-rp.vercel.app/home',
+    stats: {
+      views: '1500+',
+      engagement: '50',
+      growth: '20+',
+    },
+    client: 'NIT Rourkela',
+    year: '2024',
+  }
 ];
 
-const AnimatedTestimonials = () => {
-  const [active, setActive] = useState(0);
-  const [autoplay, setAutoplay] = useState(true);
-  const [isHovering, setIsHovering] = useState(false);
+const categories = [
+  'All',
+  'Brand Strategy & Identity',
+  'Web Development & Design',
+  'Viral Marketing Campaigns',
+  'Complete Brand Transformation',
+];
 
-  const handleNext = () => {
-    setActive((prev) => (prev + 1) % testimonials.length);
+export default function WorkPage() {
+  const [activeCategory, setActiveCategory] = useState('All');
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+
+  const filteredProjects =
+    activeCategory === 'All'
+      ? projects
+      : projects.filter((project) => project.category === activeCategory);
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        duration: 0.8,
+        staggerChildren: 0.1,
+        delayChildren: 0.2,
+      },
+    },
   };
 
-  const handlePrev = () => {
-    setActive((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: 'easeOut' },
+    },
   };
 
-  const isActive = (index: number) => index === active;
-
-  useEffect(() => {
-    if (autoplay && !isHovering) {
-      const interval = setInterval(handleNext, 5000);
-      return () => clearInterval(interval);
+  const getCategoryIcon = (category: string) => {
+    switch (category) {
+      case 'Brand Strategy & Identity':
+        return <FaPalette />;
+      case 'Web Development & Design':
+        return <FaGlobe />;
+      case 'Viral Marketing Campaigns':
+        return <FaBullhorn />;
+      case 'Complete Brand Transformation':
+        return <FaRocket />;
+      default:
+        return <FaEye />;
     }
-  }, [autoplay, isHovering]);
-
-  const getRandomTransform = () => {
-    return {
-      x: Math.floor(Math.random() * 41) - 20,
-      y: Math.floor(Math.random() * 41) - 20,
-      rotate: Math.floor(Math.random() * 21) - 10,
-      scale: 0.8 + Math.random() * 0.4
-    };
   };
 
   return (
-   
-    <div 
-      className="relative mx-auto max-w-7xl px-4 py-12 md:px-8 lg:px-12"
-      onMouseEnter={() => setIsHovering(true)}
-      onMouseLeave={() => setIsHovering(false)}
-    >
-        <Navbar></Navbar>
-        
-      <div className="relative grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-20">
-        {/* Image Section - Now with floating avatars! */}
-        <div className="relative">
-          <div className="relative h-96 w-full lg:h-[500px]">
+    <div className="min-h-screen bg-[var(--color-background)]">
+      <Navbar />
+
+      {/* Hero Section */}
+      <section className="relative pt-24 pb-16 overflow-hidden">
+        {/* Background decoration */}
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-[var(--color-brand-primary)] rounded-full blur-3xl"></div>
+          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-[var(--color-brand-accent)] rounded-full blur-3xl"></div>
+        </div>
+
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-16"
+          >
+            <motion.h1
+              className="font-jaro text-6xl sm:text-7xl md:text-8xl lg:text-[122px] lowercase mb-8 leading-none text-transparent bg-clip-text bg-gradient-to-b from-white to-purple-200/70"
+            >
+              our work
+            </motion.h1>
+            <motion.p
+              className="text-xl text-[var(--color-text-secondary)] max-w-3xl mx-auto"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3, duration: 0.6 }}
+            >
+              From bold ideas to bold brands. Discover how we've helped
+              businesses transform their digital presence and achieve
+              extraordinary growth.
+            </motion.p>
+          </motion.div>
+
+          {/* Category Filter */}
+          <motion.div
+            className="flex flex-wrap justify-center gap-4 mb-16"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.5, duration: 0.6 }}
+          >
+            {categories.map((category) => (
+              <motion.button
+                key={category}
+                onClick={() => setActiveCategory(category)}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className={`flex items-center gap-2 px-6 py-3 rounded-full border-2 transition-all duration-300 ${
+                  activeCategory === category
+                    ? 'bg-gradient-to-r from-[var(--color-brand-primary)] to-[var(--color-brand-accent)] text-white border-transparent'
+                    : 'border-[var(--color-border)]/30 text-[var(--color-text-secondary)] hover:border-[var(--color-brand-primary)]/50 hover:text-[var(--color-text-primary)]'
+                }`}
+              >
+                {getCategoryIcon(category)}
+                <span className="font-medium">{category}</span>
+              </motion.button>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Projects Grid */}
+      <section className="py-16">
+        <div className="max-w-7xl mx-auto px-6">
+          <motion.div className="grid grid-cols-1 md:grid-cols-2 gap-8" layout>
             <AnimatePresence mode="popLayout">
-              {testimonials.map((testimonial, index) => (
+              {filteredProjects.map((project) => (
                 <motion.div
-                  key={testimonial.id}
-                  initial={{
-                    opacity: 0,
-                    ...getRandomTransform(),
-                    zIndex: 0
-                  }}
-                  animate={{
-                    opacity: isActive(index) ? 1 : 0.7,
-                    x: isActive(index) ? 0 : getRandomTransform().x,
-                    y: isActive(index) ? [0, -15, 0] : getRandomTransform().y,
-                    rotate: isActive(index) ? 0 : getRandomTransform().rotate,
-                    scale: isActive(index) ? 1 : 0.9,
-                    zIndex: isActive(index) ? 40 : testimonials.length - index,
-                  }}
-                  exit={{
-                    opacity: 0,
-                    ...getRandomTransform()
-                  }}
-                  transition={{
-                    duration: 0.8,
-                    ease: [0.16, 1, 0.3, 1],
-                    y: { repeat: Infinity, duration: 4, ease: "easeInOut" }
-                  }}
-                  className="absolute inset-0 origin-center"
+                  key={project.id}
+                  layout
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.8 }}
+                  transition={{ duration: 0.5 }}
+                  whileHover={{ y: -10 }}
+                  className="group cursor-pointer"
+                  onClick={() => setSelectedProject(project)}
                 >
-                  <div className={`relative h-full w-full overflow-hidden rounded-3xl bg-gradient-to-br ${testimonial.color} p-8 shadow-2xl`}>
-                    <Sparkles className="absolute top-4 right-4 h-6 w-6 text-yellow-300" />
-                    <div className="flex h-full flex-col items-center justify-center text-center">
-                      <motion.div
-                        initial={{ scale: 0 }}
-                        animate={{ scale: 1 }}
-                        transition={{ 
-                          delay: 0.2, 
-                          duration: 0.5,
-                          type: "spring",
-                          bounce: 0.5
+                  <div className="flowing-gradient-border transition-all duration-300">
+                    <div className="relative bg-[var(--color-background-dark)] rounded-2xl overflow-hidden">
+                    {/* Project Image */}
+                    <div className="relative h-64 overflow-hidden rounded-t-2xl">
+                      <img 
+                        src={project.image} 
+                        alt={project.title}
+                        className="w-full h-full object-cover"
+                        onError={(e) => {
+                          // Fallback if image doesn't load
+                          const target = e.target as HTMLImageElement;
+                          target.style.display = 'none';
+                          target.nextElementSibling?.classList.remove('hidden');
                         }}
-                        className="mb-6"
-                      >
-                        <img
-                          src={testimonial.avatar}
-                          alt={testimonial.name}
-                          className="h-24 w-24 rounded-full object-cover shadow-lg ring-4 ring-white/80"
-                        />
-                      </motion.div>
-                      <motion.div
-                        initial={{ y: 20, opacity: 0 }}
-                        animate={{ y: 0, opacity: 1 }}
-                        transition={{ delay: 0.4, duration: 0.5 }}
-                        className="flex items-center gap-1 mb-4"
-                      >
-                        {[...Array(testimonial.rating)].map((_, i) => (
-                          <motion.div
-                            key={i}
-                            initial={{ scale: 0 }}
-                            animate={{ scale: [0, 1.2, 1] }}
-                            transition={{ delay: 0.4 + i * 0.1 }}
+                      />
+                      <div className="hidden w-full h-full bg-gradient-to-br from-[var(--color-brand-primary)]/20 to-[var(--color-brand-accent)]/20 flex items-center justify-center absolute inset-0">
+                        <motion.div
+                          whileHover={{ scale: 1.1 }}
+                          className="text-6xl text-[var(--color-brand-primary)]/30"
+                        >
+                          {getCategoryIcon(project.category)}
+                        </motion.div>
+                      </div>
+
+                      {/* Overlay */}
+                      <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <motion.div
+                          initial={{ scale: 0 }}
+                          whileHover={{ scale: 1 }}
+                          className="bg-white/20 backdrop-blur-sm rounded-full p-4"
+                        >
+                          <FaEye className="text-2xl text-white" />
+                        </motion.div>
+                      </div>
+
+                      {/* Category Badge */}
+                      <div className="absolute top-4 left-4">
+                        <span className="px-3 py-1 bg-[var(--color-brand-primary)]/20 backdrop-blur-sm text-[var(--color-text-primary)] text-sm rounded-full border border-[var(--color-brand-primary)]/30">
+                          {project.category}
+                        </span>
+                      </div>
+
+                      {/* Year */}
+                      <div className="absolute top-4 right-4">
+                        <span className="px-3 py-1 bg-black/50 backdrop-blur-sm text-white text-sm rounded-full">
+                          {project.year}
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* Project Info */}
+                    <div className="p-6">
+                      <h3 className="text-xl font-bold text-[var(--color-text-primary)] mb-2 group-hover:text-[var(--color-brand-primary)] transition-colors">
+                        {project.title}
+                      </h3>
+                      <p className="text-[var(--color-text-secondary)] mb-4 line-clamp-2">
+                        {project.description}
+                      </p>
+
+                      {/* Stats */}
+                      {project.stats && (
+                        <div className="flex gap-4 mb-4">
+                          {project.stats.growth && (
+                            <div className="flex items-center gap-1" style={{ color: '#b9f151' }}>
+                              <FaRocket className="text-xs" />
+                              <span className="text-sm">
+                                {project.stats.growth}
+                              </span>
+                            </div>
+                          )}
+                          {project.stats.views && (
+                            <div className="flex items-center gap-1" style={{ color: '#8638C4' }}>
+                              <FaEye className="text-xs" />
+                              <span className="text-sm">
+                                {project.stats.views}
+                              </span>
+                            </div>
+                          )}
+                          {project.stats.engagement && (
+                            <div className="flex items-center gap-1" style={{ color: '#FE6427' }}>
+                              <FaHeart className="text-xs" />
+                              <span className="text-sm">
+                                {project.stats.engagement}
+                              </span>
+                            </div>
+                          )}
+                        </div>
+                      )}
+
+                      {/* Technologies */}
+                      <div className="flex flex-wrap gap-2 mb-4">
+                        {project.technologies.slice(0, 3).map((tech) => (
+                          <span
+                            key={tech}
+                            className="px-2 py-1 bg-[var(--color-background)] text-[var(--color-text-secondary)] text-xs rounded border border-[var(--color-border)]/20"
                           >
-                            <Star className="h-5 w-5 fill-yellow-400 text-yellow-400" />
-                          </motion.div>
+                            {tech}
+                          </span>
                         ))}
-                      </motion.div>
-                      <motion.h3
-                        initial={{ y: 20, opacity: 0 }}
-                        animate={{ y: 0, opacity: 1 }}
-                        transition={{ delay: 0.6, duration: 0.5 }}
-                        className="text-2xl font-bold text-white"
-                      >
-                        {testimonial.name}
-                      </motion.h3>
-                      <motion.p
-                        initial={{ y: 20, opacity: 0 }}
-                        animate={{ y: 0, opacity: 1 }}
-                        transition={{ delay: 0.8, duration: 0.5 }}
-                        className="text-sm text-white/90"
-                      >
-                        {testimonial.designation}
-                      </motion.p>
-                      <motion.p
-                        initial={{ y: 20, opacity: 0 }}
-                        animate={{ y: 0, opacity: 1 }}
-                        transition={{ delay: 1, duration: 0.5 }}
-                        className="text-sm font-medium text-white/80"
-                      >
-                        {testimonial.company}
-                      </motion.p>
+                        {project.technologies.length > 3 && (
+                          <span className="px-2 py-1 text-[var(--color-text-secondary)] text-xs">
+                            +{project.technologies.length - 3} more
+                          </span>
+                        )}
+                      </div>
+
+                      {/* Client */}
+                      <p className="text-sm text-[var(--color-text-secondary)]">
+                        Client:{' '}
+                        <span className="text-[var(--color-text-primary)]">
+                          {project.client}
+                        </span>
+                      </p>
+                    </div>
                     </div>
                   </div>
                 </motion.div>
               ))}
             </AnimatePresence>
-          </div>
+          </motion.div>
         </div>
+      </section>
 
-        {/* Content Section */}
-        <div className="flex flex-col justify-center py-8">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={active}
-              initial={{ y: 20, opacity: 0 }}
-              animate={{ 
-                y: 0, 
-                opacity: 1,
-                transition: { type: "spring", bounce: 0.4 }
-              }}
-              exit={{ y: -20, opacity: 0 }}
-              transition={{ duration: 0.5, ease: 'easeInOut' }}
-              className="space-y-6"
-            >
-              <div className="flex items-center gap-2">
-                <motion.div
-                  animate={{ rotate: [0, 10, -10, 0] }}
-                  transition={{ repeat: Infinity, duration: 2 }}
-                >
-                  <Quote className="h-8 w-8 text-indigo-500" />
-                </motion.div>
-                <motion.span 
-                  className="text-sm font-medium text-indigo-600"
-                  animate={{ 
-                    x: [0, 5, 0],
-                    transition: { repeat: Infinity, duration: 3 }
-                  }}
-                >
-                  REAL TALK FROM REAL PEOPLE
-                </motion.span>
-              </div>
+      {/* Stats Section */}
+      <section className="py-20 bg-[var(--color-background-dark)]">
+        <div className="max-w-7xl mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-4xl md:text-5xl font-bold text-[var(--color-text-primary)] mb-4">
+              The Results Speak for Themselves
+            </h2>
+            <p className="text-xl text-[var(--color-text-secondary)] max-w-2xl mx-auto">
+              Numbers that matter, impact that lasts
+            </p>
+          </motion.div>
 
-              <motion.blockquote className="text-xl font-medium leading-relaxed text-gray-900 lg:text-2xl">
-                {testimonials[active].quote.split(' ').map((word, index) => (
-                  <motion.span
-                    key={index}
-                    initial={{
-                      opacity: 0,
-                      y: 10,
-                    }}
-                    animate={{
-                      opacity: 1,
-                      y: 0,
-                    }}
-                    transition={{
-                      duration: 0.3,
-                      ease: 'backOut',
-                      delay: index * 0.03,
-                    }}
-                    className="inline-block"
-                  >
-                    {word}&nbsp;
-                  </motion.span>
-                ))}
-              </motion.blockquote>
-
-              <motion.div 
-                className="flex items-center gap-4 pt-4"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.5 }}
-              >
-                <div className="flex items-center gap-1">
-                  {[...Array(testimonials[active].rating)].map((_, i) => (
-                    <motion.div
-                      key={i}
-                      animate={{ 
-                        scale: [1, 1.2, 1],
-                        rotate: [0, 15, -15, 0]
-                      }}
-                      transition={{ 
-                        delay: i * 0.1,
-                        repeat: Infinity,
-                        repeatDelay: 5
-                      }}
-                    >
-                      <Star className="h-5 w-5 fill-yellow-400 text-yellow-400" />
-                    </motion.div>
-                  ))}
-                </div>
-                <span className="text-sm font-medium text-gray-500">
-                  {testimonials[active].rating}/5 BANGER RATING
-                </span>
-              </motion.div>
-            </motion.div>
-          </AnimatePresence>
-
-          {/* Navigation - More playful buttons */}
-          <div className="flex items-center justify-between pt-12">
-            <div className="flex gap-3">
-              <motion.button
-                onClick={handlePrev}
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-                className="group flex h-12 w-12 items-center justify-center rounded-full bg-indigo-100 transition-all hover:bg-indigo-200"
-              >
-                <ChevronLeft className="h-5 w-5 text-indigo-600 transition-transform duration-300 group-hover:-translate-x-1" />
-              </motion.button>
-              <motion.button
-                onClick={handleNext}
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-                className="group flex h-12 w-12 items-center justify-center rounded-full bg-indigo-100 transition-all hover:bg-indigo-200"
-              >
-                <ChevronRight className="h-5 w-5 text-indigo-600 transition-transform duration-300 group-hover:translate-x-1" />
-              </motion.button>
-            </div>
-
-            {/* Autoplay Toggle - More fun */}
-            <motion.button
-              onClick={() => setAutoplay(!autoplay)}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className={`rounded-full px-4 py-2 text-sm font-medium transition-all flex items-center gap-2 ${
-                autoplay
-                  ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-200'
-                  : 'bg-gray-100 text-gray-700'
-              }`}
-            >
-              {autoplay ? (
-                <>
-                  <motion.span
-                    animate={{ opacity: [1, 0.5, 1] }}
-                    transition={{ duration: 1.5, repeat: Infinity }}
-                  >
-                    ⏸️ Pause the Party
-                  </motion.span>
-                </>
-              ) : (
-                <>
-                  <motion.span
-                    animate={{ rotate: [0, 360] }}
-                    transition={{ duration: 2, repeat: Infinity }}
-                  >
-                    ▶️ Let's Groove
-                  </motion.span>
-                </>
-              )}
-            </motion.button>
-          </div>
-
-          {/* Indicators - Now with bounce! */}
-          <div className="flex justify-center gap-2 pt-8">
-            {testimonials.map((_, index) => (
-              <motion.button
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+            {[
+              {
+                number: '50+',
+                label: 'Projects Completed',
+                icon: <FaRocket />,
+              },
+              {
+                number: '98%',
+                label: 'Client Satisfaction',
+                icon: <FaHeart />,
+              },
+              { number: '300%', label: 'Average Growth', icon: <FaShareAlt /> },
+              { number: '24/7', label: 'Support Available', icon: <FaEye /> },
+            ].map((stat, index) => (
+              <motion.div
                 key={index}
-                onClick={() => setActive(index)}
-                whileHover={{ scale: 1.2 }}
-                whileTap={{ scale: 0.8 }}
-                animate={{ 
-                  scale: isActive(index) ? [1, 1.2, 1] : 1,
-                  transition: { repeat: isActive(index) ? Infinity : 0, duration: 2 }
-                }}
-                className={`h-3 w-3 rounded-full transition-all ${
-                  isActive(index)
-                    ? 'bg-indigo-600 shadow-md shadow-indigo-300'
-                    : 'bg-gray-300'
-                }`}
-              />
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1, duration: 0.6 }}
+                whileHover={{ scale: 1.05 }}
+                className="text-center p-6 rounded-xl bg-[var(--color-background)] border border-[var(--color-border)]/20 hover:border-[var(--color-brand-primary)]/50 transition-all duration-300"
+              >
+                <div className="text-3xl text-[var(--color-brand-primary)] mb-4 flex justify-center">
+                  {stat.icon}
+                </div>
+                <div className="text-4xl font-bold text-[var(--color-text-primary)] mb-2">
+                  {stat.number}
+                </div>
+                <div className="text-[var(--color-text-secondary)]">
+                  {stat.label}
+                </div>
+              </motion.div>
             ))}
           </div>
         </div>
-      </div>
-    </div>
-  );
-};
+      </section>
 
-export default function TestimonialsPage() {
-  return (
-    <div className="min-h-screen bg-white">
-      {/* Header with more personality */}
-      <div className="mx-auto max-w-7xl px-4 py-16 text-center md:px-8 lg:px-12">
-        <motion.div
-          initial={{ y: 20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.6 }}
-        >
-          <motion.h1 
-            className="text-4xl font-bold text-gray-900 md:text-5xl lg:text-6xl"
-            animate={{ 
-              textShadow: [
-                "0 0 0px #6366f1",
-                "0 0 10px #6366f1",
-                "0 0 0px #6366f1"
-              ]
-            }}
-            transition={{ duration: 3, repeat: Infinity }}
+      {/* CTA Section */}
+      <section className="py-20">
+        <div className="max-w-4xl mx-auto px-6 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
           >
-            Don't Just Take <span className="text-indigo-600">Our Word</span> For It
-          </motion.h1>
-          <motion.p 
-            className="mx-auto mt-6 max-w-2xl text-lg text-gray-600"
-            animate={{
-              scale: [1, 1.02, 1],
-              transition: { duration: 5, repeat: Infinity }
-            }}
-          >
-            Here's what the cool kids are saying about us. Spoiler: They love it! 🎉
-          </motion.p>
-        </motion.div>
-      </div>
-
-      {/* Testimonials */}
-      <AnimatedTestimonials />
-
-      {/* Stats Section - More dynamic */}
-      <div className="mx-auto max-w-7xl px-4 py-16 md:px-8 lg:px-12">
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
-          {[
-            { number: '10K+', label: 'Happy Customers Dancing' },
-            { number: '4.9/5', label: 'Average Happy Rating' },
-            { number: '99.9%', label: 'Uptime (We Never Sleep)' },
-          ].map((stat, index) => (
-            <motion.div
-              key={index}
-              initial={{ y: 20, opacity: 0 }}
-              animate={{ 
-                y: 0, 
-                opacity: 1,
-                transition: { delay: index * 0.2, duration: 0.6 }
-              }}
-              whileHover={{ y: -5 }}
-              className="text-center rounded-xl bg-gradient-to-br from-indigo-50 to-purple-50 p-6 shadow-sm"
+            <h2 className="text-4xl md:text-5xl font-bold text-[var(--color-text-primary)] mb-6">
+              Ready to Create Something Amazing?
+            </h2>
+            <p className="text-xl text-[var(--color-text-secondary)] mb-8">
+              Let's discuss your project and turn your vision into reality
+            </p>
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="bg-gradient-to-r from-[var(--color-brand-primary)] to-[var(--color-brand-accent)] text-white px-8 py-4 rounded-full font-medium text-lg hover:shadow-lg hover:shadow-[var(--color-brand-primary)]/25 transition-all duration-300"
             >
-              <div className="text-4xl font-bold text-indigo-600 md:text-5xl">
-                <motion.span
-                  animate={{ 
-                    scale: [1, 1.1, 1],
-                    transition: { duration: 3, repeat: Infinity }
-                  }}
-                >
-                  {stat.number}
-                </motion.span>
-              </div>
-              <div className="mt-2 text-sm text-gray-600">
-                {stat.label}
+              Start Your Project
+            </motion.button>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Project Modal */}
+      <AnimatePresence>
+        {selectedProject && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+            onClick={() => setSelectedProject(null)}
+          >
+            <motion.div
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.8, opacity: 0 }}
+              transition={{ type: 'spring', damping: 25, stiffness: 300 }}
+              className="bg-[var(--color-background-dark)] rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto border border-[var(--color-border)]/30"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <div className="p-8">
+                <div className="flex justify-between items-start mb-6">
+                  <div>
+                    <h3 className="text-3xl font-bold text-[var(--color-text-primary)] mb-2">
+                      {selectedProject.title}
+                    </h3>
+                    <p className="text-[var(--color-brand-primary)]">
+                      {selectedProject.category}
+                    </p>
+                  </div>
+                  <button
+                    onClick={() => setSelectedProject(null)}
+                    className="text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] text-2xl"
+                  >
+                    ✕
+                  </button>
+                </div>
+
+                <div className="relative h-64 bg-gradient-to-br from-[var(--color-brand-primary)]/20 to-[var(--color-brand-accent)]/20 rounded-xl mb-6 flex items-center justify-center overflow-hidden">
+                  <img 
+                    src={selectedProject.image} 
+                    alt={selectedProject.title}
+                    className="w-full h-full object-cover"
+                    onError={(e) => {
+                      const target = e.target as HTMLImageElement;
+                      target.style.display = 'none';
+                    }}
+                  />
+                  <div className="absolute inset-0 flex items-center justify-center text-6xl text-[var(--color-brand-primary)]/30">
+                    {getCategoryIcon(selectedProject.category)}
+                  </div>
+                </div>
+
+                <div className="grid md:grid-cols-2 gap-8">
+                  <div>
+                    <h4 className="text-xl font-semibold text-[var(--color-text-primary)] mb-4">
+                      Project Description
+                    </h4>
+                    <p className="text-[var(--color-text-secondary)] mb-6">
+                      {selectedProject.description}
+                    </p>
+
+                    <h4 className="text-xl font-semibold text-[var(--color-text-primary)] mb-4">
+                      Technologies Used
+                    </h4>
+                    <div className="flex flex-wrap gap-2 mb-6">
+                      {selectedProject.technologies.map((tech) => (
+                        <span
+                          key={tech}
+                          className="px-3 py-1 bg-[var(--color-brand-primary)]/20 text-[var(--color-brand-primary)] text-sm rounded-full border border-[var(--color-brand-primary)]/30"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div>
+                    <h4 className="text-xl font-semibold text-[var(--color-text-primary)] mb-4">
+                      Project Details
+                    </h4>
+                    <div className="space-y-3 mb-6">
+                      <div className="flex justify-between">
+                        <span className="text-[var(--color-text-secondary)]">
+                          Client:
+                        </span>
+                        <span className="text-[var(--color-text-primary)]">
+                          {selectedProject.client}
+                        </span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span className="text-[var(--color-text-secondary)]">
+                          Year:
+                        </span>
+                        <span className="text-[var(--color-text-primary)]">
+                          {selectedProject.year}
+                        </span>
+                      </div>
+                    </div>
+
+                    {selectedProject.stats && (
+                      <>
+                        <h4 className="text-xl font-semibold text-[var(--color-text-primary)] mb-4">
+                          Results
+                        </h4>
+                        <div className="space-y-3">
+                          {selectedProject.stats.growth && (
+                            <div className="flex justify-between">
+                              <span className="text-[var(--color-text-secondary)]">
+                                Growth:
+                              </span>
+                              <span style={{ color: '#b9f151' }}>
+                                {selectedProject.stats.growth}
+                              </span>
+                            </div>
+                          )}
+                          {selectedProject.stats.views && (
+                            <div className="flex justify-between">
+                              <span className="text-[var(--color-text-secondary)]">
+                                Views:
+                              </span>
+                              <span style={{ color: '#8638C4' }}>
+                                {selectedProject.stats.views}
+                              </span>
+                            </div>
+                          )}
+                          {selectedProject.stats.engagement && (
+                            <div className="flex justify-between">
+                              <span className="text-[var(--color-text-secondary)]">
+                                Engagement:
+                              </span>
+                              <span style={{ color: '#FE6427' }}>
+                                {selectedProject.stats.engagement}
+                              </span>
+                            </div>
+                          )}
+                        </div>
+                      </>
+                    )}
+                  </div>
+                </div>
+
+                {selectedProject.liveUrl && (
+                  <div className="mt-8 pt-6 border-t border-[var(--color-border)]/20">
+                    <a 
+                      href={selectedProject.liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 bg-gradient-to-r from-[var(--color-brand-primary)] to-[var(--color-brand-accent)] text-white px-6 py-3 rounded-lg hover:scale-105 transition-transform"
+                    >
+                      <FaExternalLinkAlt />
+                      View Live Project
+                    </a>
+                  </div>
+                )}
               </div>
             </motion.div>
-          ))}
-        </div>
-      </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      <Footer />
     </div>
   );
 }

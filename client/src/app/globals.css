@@ -55,6 +55,12 @@
   --font-size-h4: 1.25rem;
   --font-size-h5: 1rem;
   --font-size-h6: 0.875rem;
+
+  /* Marquee Brand Colors */
+  --brand-orange: #FE6427;
+  --brand-purple: #8638C4;
+  --brand-yellow: #fbff15;
+  --brand-green: #b9f151;
 }
 
 @keyframes marquee {
@@ -86,3 +92,42 @@
 .animation-paused {
   animation-play-state: paused;
 }
+
+/* Flowing Gradient Border Animation */
+@keyframes gradient-flow {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 200% 50%;
+  }
+}
+
+.flowing-gradient-border {
+  position: relative;
+  background: var(--color-background-dark);
+  border-radius: 1rem;
+  padding: 0px;
+  transition: padding 0.3s ease;
+}
+
+.flowing-gradient-border:hover {
+  padding: 2px;
+  background: linear-gradient(
+    90deg,
+    var(--brand-orange),
+    var(--brand-purple),
+    var(--brand-yellow),
+    var(--brand-green),
+    var(--brand-orange),
+    var(--brand-purple)
+  );
+  background-size: 200% 100%;
+  animation: gradient-flow 2s linear infinite;
+}
+
+.flowing-gradient-border > * {
+  background: var(--color-background-dark);
+  border-radius: calc(1rem - 2px);
+}
+

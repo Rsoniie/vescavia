@@ -1,6 +1,5 @@
 import Navbar from './components/navbar';
 import Home from './home/page';
-import ContactPage from './contact/page';
 import CopyrightPage from './copyright/page';
 export default function IndexPage() {
   return (
@@ -8,7 +7,6 @@ export default function IndexPage() {
       <Navbar />
       <div className="-mt-10">
         <Home />
-        <ContactPage />
         <CopyrightPage />
       </div>
     </div>
