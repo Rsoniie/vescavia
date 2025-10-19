@@ -160,7 +160,7 @@ const AboutSection: React.FC<AboutSectionProps> = ({ title, description }) => {
       </section>
 
       {/* Our Principles - Modern Card Layout */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-[var(--color-background-dark)]">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -169,10 +169,10 @@ const AboutSection: React.FC<AboutSectionProps> = ({ title, description }) => {
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+            <h2 className="text-4xl md:text-5xl font-bold text-[var(--color-text-primary)] mb-4">
               Our Principles
             </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            <p className="text-xl text-[var(--color-text-secondary)] max-w-2xl mx-auto">
               The core values that guide our work and relationships
             </p>
           </motion.div>
@@ -184,10 +184,10 @@ const AboutSection: React.FC<AboutSectionProps> = ({ title, description }) => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 group"
+              className="bg-[var(--color-background)] border border-[var(--color-brand-primary)]/20 rounded-2xl overflow-hidden shadow-lg shadow-[var(--color-brand-primary)]/10 hover:shadow-xl hover:shadow-[var(--color-brand-accent)]/20 hover:border-[var(--color-brand-accent)]/40 transition-all duration-300 group"
             >
               {/* Visual Section - Geometric Blocks */}
-              <div className="relative h-64 bg-white overflow-hidden">
+              <div className="relative h-64 bg-gradient-to-br from-[var(--color-background)] to-[var(--color-background-dark)] overflow-hidden">
                 <svg
                   className="absolute inset-0 w-full h-full"
                   viewBox="0 0 400 300"
@@ -200,7 +200,7 @@ const AboutSection: React.FC<AboutSectionProps> = ({ title, description }) => {
                     y="40"
                     width="80"
                     height="60"
-                    fill="#00FF00"
+                    fill="var(--color-brand-primary)"
                     className="group-hover:scale-110 transition-transform duration-500"
                     style={{ transformOrigin: 'center' }}
                   />
@@ -209,7 +209,7 @@ const AboutSection: React.FC<AboutSectionProps> = ({ title, description }) => {
                     y="20"
                     width="60"
                     height="80"
-                    fill="#FF6B35"
+                    fill="var(--color-brand-accent)"
                     className="group-hover:scale-105 transition-transform duration-700"
                     style={{ transformOrigin: 'center' }}
                   />
@@ -218,7 +218,7 @@ const AboutSection: React.FC<AboutSectionProps> = ({ title, description }) => {
                     y="60"
                     width="100"
                     height="40"
-                    fill="#000000"
+                    fill="var(--color-brand-secondary)"
                     className="group-hover:scale-110 transition-transform duration-600"
                     style={{ transformOrigin: 'center' }}
                   />
@@ -227,7 +227,7 @@ const AboutSection: React.FC<AboutSectionProps> = ({ title, description }) => {
                     y="30"
                     width="50"
                     height="70"
-                    fill="#00FF00"
+                    fill="var(--color-brand-primary)"
                     opacity="0.7"
                     className="group-hover:scale-105 transition-transform duration-800"
                     style={{ transformOrigin: 'center' }}
@@ -237,7 +237,7 @@ const AboutSection: React.FC<AboutSectionProps> = ({ title, description }) => {
                     y="140"
                     width="90"
                     height="50"
-                    fill="#FF6B35"
+                    fill="var(--color-brand-accent)"
                     opacity="0.8"
                     className="group-hover:scale-110 transition-transform duration-500"
                     style={{ transformOrigin: 'center' }}
@@ -247,7 +247,7 @@ const AboutSection: React.FC<AboutSectionProps> = ({ title, description }) => {
                     y="130"
                     width="70"
                     height="90"
-                    fill="#000000"
+                    fill="var(--color-brand-secondary)"
                     opacity="0.6"
                     className="group-hover:scale-105 transition-transform duration-700"
                     style={{ transformOrigin: 'center' }}
@@ -257,7 +257,7 @@ const AboutSection: React.FC<AboutSectionProps> = ({ title, description }) => {
                     y="150"
                     width="80"
                     height="60"
-                    fill="#00FF00"
+                    fill="var(--color-brand-primary)"
                     opacity="0.9"
                     className="group-hover:scale-110 transition-transform duration-600"
                     style={{ transformOrigin: 'center' }}
@@ -266,10 +266,10 @@ const AboutSection: React.FC<AboutSectionProps> = ({ title, description }) => {
               </div>
               {/* Text Section */}
               <div className="p-8">
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                <h3 className="text-2xl font-bold text-[var(--color-text-primary)] mb-4 bg-gradient-to-r from-[var(--color-brand-primary)] to-[var(--color-brand-accent)] bg-clip-text text-transparent">
                   Business Wins, We Win.
                 </h3>
-                <p className="text-gray-600 leading-relaxed">
+                <p className="text-[var(--color-text-secondary)] leading-relaxed">
                   Your success is our success. We're fundamentally committed to
                   ensuring our partners achieve their business goals through
                   exceptional results and unwavering dedication.
@@ -283,10 +283,10 @@ const AboutSection: React.FC<AboutSectionProps> = ({ title, description }) => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1, duration: 0.6 }}
-              className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 group"
+              className="bg-[var(--color-background)] border border-[var(--color-brand-primary)]/20 rounded-2xl overflow-hidden shadow-lg shadow-[var(--color-brand-primary)]/10 hover:shadow-xl hover:shadow-[var(--color-brand-accent)]/20 hover:border-[var(--color-brand-accent)]/40 transition-all duration-300 group"
             >
               {/* Visual Section - Organic Shapes */}
-              <div className="relative h-64 bg-white overflow-hidden">
+              <div className="relative h-64 bg-gradient-to-br from-[var(--color-background)] to-[var(--color-background-dark)] overflow-hidden">
                 <svg
                   className="absolute inset-0 w-full h-full"
                   viewBox="0 0 400 300"
@@ -296,20 +296,20 @@ const AboutSection: React.FC<AboutSectionProps> = ({ title, description }) => {
                   {/* Organic flowing shapes */}
                   <path
                     d="M50 80 Q120 40, 180 80 T320 100 Q350 120, 360 160 Q340 200, 280 180 Q200 160, 120 180 Q80 160, 50 120 Z"
-                    fill="#FFB6C1"
+                    fill="var(--color-brand-accent)"
                     className="group-hover:scale-105 transition-transform duration-500"
                     style={{ transformOrigin: 'center' }}
                   />
                   <path
                     d="M80 140 Q140 110, 200 140 T300 160 Q320 180, 310 210 Q290 230, 250 220 Q180 200, 130 220 Q100 200, 80 170 Z"
-                    fill="#FF6B35"
+                    fill="var(--color-brand-primary)"
                     opacity="0.8"
                     className="group-hover:scale-110 transition-transform duration-700"
                     style={{ transformOrigin: 'center' }}
                   />
                   <path
                     d="M200 50 Q250 30, 300 50 T370 80 Q380 100, 370 130 Q350 150, 310 140 Q260 130, 220 140 Q190 130, 180 100 Q190 70, 200 50 Z"
-                    fill="#000000"
+                    fill="var(--color-brand-secondary)"
                     opacity="0.7"
                     className="group-hover:scale-105 transition-transform duration-600"
                     style={{ transformOrigin: 'center' }}
@@ -319,7 +319,7 @@ const AboutSection: React.FC<AboutSectionProps> = ({ title, description }) => {
                     cy="200"
                     rx="40"
                     ry="25"
-                    fill="#FFB6C1"
+                    fill="var(--color-brand-accent)"
                     opacity="0.9"
                     className="group-hover:scale-110 transition-transform duration-800"
                     style={{ transformOrigin: 'center' }}
@@ -328,10 +328,10 @@ const AboutSection: React.FC<AboutSectionProps> = ({ title, description }) => {
               </div>
               {/* Text Section */}
               <div className="p-8">
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                <h3 className="text-2xl font-bold text-[var(--color-text-primary)] mb-4 bg-gradient-to-r from-[var(--color-brand-primary)] to-[var(--color-brand-accent)] bg-clip-text text-transparent">
                   Our Word is our Bond.
                 </h3>
-                <p className="text-gray-600 leading-relaxed">
+                <p className="text-[var(--color-text-secondary)] leading-relaxed">
                   In fast-paced environments with multiple stakeholders, we hold
                   ourselves accountable for our promises and deliver exceptional
                   results without compromise, building trust through consistent
@@ -346,10 +346,10 @@ const AboutSection: React.FC<AboutSectionProps> = ({ title, description }) => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.2, duration: 0.6 }}
-              className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 group"
+              className="bg-[var(--color-background)] border border-[var(--color-brand-primary)]/20 rounded-2xl overflow-hidden shadow-lg shadow-[var(--color-brand-primary)]/10 hover:shadow-xl hover:shadow-[var(--color-brand-accent)]/20 hover:border-[var(--color-brand-accent)]/40 transition-all duration-300 group"
             >
               {/* Visual Section - Scattered Dots */}
-              <div className="relative h-64 bg-white overflow-hidden">
+              <div className="relative h-64 bg-gradient-to-br from-[var(--color-background)] to-[var(--color-background-dark)] overflow-hidden">
                 <svg
                   className="absolute inset-0 w-full h-full"
                   viewBox="0 0 400 300"
@@ -361,7 +361,7 @@ const AboutSection: React.FC<AboutSectionProps> = ({ title, description }) => {
                     cx="80"
                     cy="60"
                     r="25"
-                    fill="#00FFFF"
+                    fill="var(--color-brand-secondary)"
                     className="group-hover:scale-125 transition-transform duration-500"
                     style={{ transformOrigin: 'center' }}
                   />
@@ -369,7 +369,7 @@ const AboutSection: React.FC<AboutSectionProps> = ({ title, description }) => {
                     cx="180"
                     cy="40"
                     r="15"
-                    fill="#FF6B35"
+                    fill="var(--color-brand-accent)"
                     className="group-hover:scale-110 transition-transform duration-700"
                     style={{ transformOrigin: 'center' }}
                   />
@@ -377,7 +377,7 @@ const AboutSection: React.FC<AboutSectionProps> = ({ title, description }) => {
                     cx="300"
                     cy="70"
                     r="35"
-                    fill="#000000"
+                    fill="var(--color-brand-primary)"
                     opacity="0.8"
                     className="group-hover:scale-115 transition-transform duration-600"
                     style={{ transformOrigin: 'center' }}
@@ -386,7 +386,7 @@ const AboutSection: React.FC<AboutSectionProps> = ({ title, description }) => {
                     cx="120"
                     cy="120"
                     r="20"
-                    fill="#00FFFF"
+                    fill="var(--color-brand-secondary)"
                     opacity="0.7"
                     className="group-hover:scale-120 transition-transform duration-800"
                     style={{ transformOrigin: 'center' }}
@@ -395,7 +395,7 @@ const AboutSection: React.FC<AboutSectionProps> = ({ title, description }) => {
                     cx="250"
                     cy="110"
                     r="12"
-                    fill="#FF6B35"
+                    fill="var(--color-brand-accent)"
                     opacity="0.9"
                     className="group-hover:scale-110 transition-transform duration-500"
                     style={{ transformOrigin: 'center' }}
@@ -404,7 +404,7 @@ const AboutSection: React.FC<AboutSectionProps> = ({ title, description }) => {
                     cx="350"
                     cy="130"
                     r="18"
-                    fill="#00FFFF"
+                    fill="var(--color-brand-secondary)"
                     className="group-hover:scale-115 transition-transform duration-700"
                     style={{ transformOrigin: 'center' }}
                   />
@@ -412,7 +412,7 @@ const AboutSection: React.FC<AboutSectionProps> = ({ title, description }) => {
                     cx="60"
                     cy="180"
                     r="30"
-                    fill="#000000"
+                    fill="var(--color-brand-primary)"
                     opacity="0.6"
                     className="group-hover:scale-125 transition-transform duration-600"
                     style={{ transformOrigin: 'center' }}
@@ -421,7 +421,7 @@ const AboutSection: React.FC<AboutSectionProps> = ({ title, description }) => {
                     cx="200"
                     cy="170"
                     r="22"
-                    fill="#FF6B35"
+                    fill="var(--color-brand-accent)"
                     className="group-hover:scale-110 transition-transform duration-800"
                     style={{ transformOrigin: 'center' }}
                   />
@@ -429,7 +429,7 @@ const AboutSection: React.FC<AboutSectionProps> = ({ title, description }) => {
                     cx="320"
                     cy="200"
                     r="16"
-                    fill="#00FFFF"
+                    fill="var(--color-brand-secondary)"
                     opacity="0.8"
                     className="group-hover:scale-120 transition-transform duration-500"
                     style={{ transformOrigin: 'center' }}
@@ -438,7 +438,7 @@ const AboutSection: React.FC<AboutSectionProps> = ({ title, description }) => {
                     cx="140"
                     cy="220"
                     r="14"
-                    fill="#000000"
+                    fill="var(--color-brand-primary)"
                     className="group-hover:scale-115 transition-transform duration-700"
                     style={{ transformOrigin: 'center' }}
                   />
@@ -446,7 +446,7 @@ const AboutSection: React.FC<AboutSectionProps> = ({ title, description }) => {
                     cx="270"
                     cy="240"
                     r="26"
-                    fill="#00FFFF"
+                    fill="var(--color-brand-secondary)"
                     opacity="0.9"
                     className="group-hover:scale-125 transition-transform duration-600"
                     style={{ transformOrigin: 'center' }}
@@ -455,10 +455,10 @@ const AboutSection: React.FC<AboutSectionProps> = ({ title, description }) => {
               </div>
               {/* Text Section */}
               <div className="p-8">
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                <h3 className="text-2xl font-bold text-[var(--color-text-primary)] mb-4 bg-gradient-to-r from-[var(--color-brand-primary)] to-[var(--color-brand-accent)] bg-clip-text text-transparent">
                   Creativity is Sacred, Aesthetics are God.
                 </h3>
-                <p className="text-gray-600 leading-relaxed">
+                <p className="text-[var(--color-text-secondary)] leading-relaxed">
                   We create groundbreaking work that challenges conventions and
                   drives real business impact. Our communication, design, and
                   strategy help brands stand out through authentic
@@ -473,10 +473,10 @@ const AboutSection: React.FC<AboutSectionProps> = ({ title, description }) => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.3, duration: 0.6 }}
-              className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 group"
+              className="bg-[var(--color-background)] border border-[var(--color-brand-primary)]/20 rounded-2xl overflow-hidden shadow-lg shadow-[var(--color-brand-primary)]/10 hover:shadow-xl hover:shadow-[var(--color-brand-accent)]/20 hover:border-[var(--color-brand-accent)]/40 transition-all duration-300 group"
             >
               {/* Visual Section - Mixed Elements */}
-              <div className="relative h-64 bg-white overflow-hidden">
+              <div className="relative h-64 bg-gradient-to-br from-[var(--color-background)] to-[var(--color-background-dark)] overflow-hidden">
                 <svg
                   className="absolute inset-0 w-full h-full"
                   viewBox="0 0 400 300"
@@ -488,7 +488,7 @@ const AboutSection: React.FC<AboutSectionProps> = ({ title, description }) => {
                     cx="100"
                     cy="80"
                     r="30"
-                    fill="#FFB6C1"
+                    fill="var(--color-brand-accent)"
                     className="group-hover:scale-110 transition-transform duration-500"
                     style={{ transformOrigin: 'center' }}
                   />
@@ -497,21 +497,21 @@ const AboutSection: React.FC<AboutSectionProps> = ({ title, description }) => {
                     y="50"
                     width="60"
                     height="60"
-                    fill="#00FF00"
+                    fill="var(--color-brand-primary)"
                     opacity="0.8"
                     className="group-hover:scale-105 transition-transform duration-700"
                     style={{ transformOrigin: 'center' }}
                   />
                   <polygon
                     points="280,40 320,80 280,120 240,80"
-                    fill="#000000"
+                    fill="var(--color-brand-secondary)"
                     opacity="0.7"
                     className="group-hover:scale-110 transition-transform duration-600"
                     style={{ transformOrigin: '280,80' }}
                   />
                   <path
                     d="M50 150 Q100 130, 150 150 T250 170 Q280 180, 270 210 Q250 230, 200 220 Q150 200, 100 220 Q70 200, 50 180 Z"
-                    fill="#00FF00"
+                    fill="var(--color-brand-primary)"
                     opacity="0.6"
                     className="group-hover:scale-105 transition-transform duration-800"
                     style={{ transformOrigin: 'center' }}
@@ -520,7 +520,7 @@ const AboutSection: React.FC<AboutSectionProps> = ({ title, description }) => {
                     cx="320"
                     cy="180"
                     r="25"
-                    fill="#FFB6C1"
+                    fill="var(--color-brand-accent)"
                     opacity="0.9"
                     className="group-hover:scale-115 transition-transform duration-500"
                     style={{ transformOrigin: 'center' }}
@@ -530,13 +530,13 @@ const AboutSection: React.FC<AboutSectionProps> = ({ title, description }) => {
                     y="200"
                     width="40"
                     height="40"
-                    fill="#000000"
+                    fill="var(--color-brand-secondary)"
                     className="group-hover:scale-110 transition-transform duration-700"
                     style={{ transformOrigin: 'center' }}
                   />
                   <polygon
                     points="200,200 230,230 200,260 170,230"
-                    fill="#00FF00"
+                    fill="var(--color-brand-primary)"
                     className="group-hover:scale-105 transition-transform duration-600"
                     style={{ transformOrigin: '200,230' }}
                   />
@@ -544,10 +544,10 @@ const AboutSection: React.FC<AboutSectionProps> = ({ title, description }) => {
               </div>
               {/* Text Section */}
               <div className="p-8">
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                <h3 className="text-2xl font-bold text-[var(--color-text-primary)] mb-4 bg-gradient-to-r from-[var(--color-brand-primary)] to-[var(--color-brand-accent)] bg-clip-text text-transparent">
                   Partnerships with Win-Win Attitude.
                 </h3>
-                <p className="text-gray-600 leading-relaxed">
+                <p className="text-[var(--color-text-secondary)] leading-relaxed">
                   We view all stakeholders as valued partners, approaching every
                   relationship with a collaborative spirit. Our goal is mutual
                   success where both parties thrive and grow together.

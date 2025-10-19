@@ -1,33 +1,32 @@
 import Navbar from '../../components/navbar';
 import Button from '../../components/button';
 import DynamicEmoji from '../../components/animations/dynamicComp';
-import ServiceCard from '../../components/ServiceCard';
 import SEO from '../../components/SEO';
 import Image from 'next/image';
 
 const adServices = [
   {
-    image: '/images/services/ad-creative-1.jpg',
+    image: 'https://images.unsplash.com/photo-1611926653458-09294b3142bf?w=800&h=600&fit=crop',
     title: 'Video Ad Production',
     description:
-      'Scroll-stopping video ads crafted for every platform. From concept to viral delivery.',
+      'Ads that stop the scroll. From concept to final cut, we create video ads that convert.',
   },
   {
-    image: '/images/services/ad-creative-2.jpg',
+    image: 'https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?w=800&h=600&fit=crop',
     title: 'Social Media Campaigns',
     description:
-      'Creative, thumb-stopping ads for Instagram, TikTok, Facebook, and more.',
+      'Platform-native ads for Instagram, TikTok, Facebook. Built for the algorithm, designed for humans.',
   },
   {
-    image: '/images/services/ad-creative-3.jpg',
-    title: 'Copywriting & Scripting',
+    image: 'https://images.unsplash.com/photo-1542744094-3a31f272c490?w=800&h=600&fit=crop',
+    title: 'Copywriting & Strategy',
     description:
-      'Words that sell. Scripts and copy that turn browsers into buyers.',
+      'Words that sell. Copy and strategy that turns scrollers into buyers.',
   },
   {
-    image: '/images/services/ad-creative-4.jpg',
-    title: 'Motion Graphics',
-    description: 'Dynamic animations and graphics to make your message pop.',
+    image: 'https://images.unsplash.com/photo-1558655146-d09347e92766?w=800&h=600&fit=crop',
+    title: 'Performance Creative',
+    description: 'Data-driven ads optimized for ROI. We test, iterate, and scale what works.',
   },
 ];
 
@@ -35,23 +34,23 @@ const heroImages = ['/img1.webp', '/img2.jpg', '/img3.webp', '/img4.avif'];
 
 const processSteps = [
   {
-    title: 'Discovery',
+    title: 'Strategy',
     description:
-      'We dive deep into your brand, audience, and goals to spark the big idea.',
+      'Understand your audience, goals, and what makes you different.',
   },
   {
-    title: 'Creative Concept',
+    title: 'Create',
     description:
-      'Our team brainstorms, storyboards, and pitches bold ad concepts tailored for your brand.',
+      'Concept, script, design, and produce ads that get attention.',
   },
   {
-    title: 'Production',
+    title: 'Test',
     description:
-      'From script to screen, we bring your ad to life with top-tier visuals and sound.',
+      'Launch, measure, learn. We optimize based on real performance data.',
   },
   {
-    title: 'Launch & Optimize',
-    description: 'We launch, analyze, and iterate for maximum impact and ROI.',
+    title: 'Scale',
+    description: 'Double down on winners. Kill what doesn\'t work. Grow revenue.',
   },
 ];
 
@@ -60,19 +59,19 @@ const testimonials = [
     name: 'Alex Rivera',
     company: 'GlowUp Cosmetics',
     quote:
-      'Vescavia took our ad game to the next level. Our campaign went viral and sales skyrocketed!',
+      'Our ROAS went from 2.3x to 5.8x in 6 weeks. These ads just work.',
   },
   {
     name: 'Priya Singh',
     company: 'FitFuel',
     quote:
-      'The creative team at Vescavia just gets it. Our brand has never looked better online.',
+      'Finally, ads that don\'t look like ads. Our engagement rate tripled.',
   },
   {
     name: 'Jordan Lee',
     company: 'TechNest',
     quote:
-      'From concept to launch, the process was seamless and the results were outstanding.',
+      'From storyboard to final delivery - flawless execution every time.',
   },
 ];
 
@@ -80,17 +79,17 @@ const faqs = [
   {
     question: 'What platforms do you create ads for?',
     answer:
-      'We create ads for all major platforms including Instagram, TikTok, Facebook, YouTube, and more.',
+      'All of them. Instagram, TikTok, Facebook, YouTube, LinkedIn. We optimize creative for each platform\'s specs and audience behavior.',
   },
   {
-    question: 'How long does the ad creation process take?',
+    question: 'How long does it take to create an ad?',
     answer:
-      'Most projects take 2-4 weeks from kickoff to delivery, depending on complexity.',
+      'Simple static ads: 3-5 days. Video ads: 1-2 weeks. Full campaigns with multiple variations: 2-3 weeks.',
   },
   {
-    question: 'Can you help with ad strategy and placement?',
+    question: 'Do you help with ad buying and strategy?',
     answer:
-      'Absolutely! We offer full-funnel creative strategy and can advise on media buying and placement.',
+      'We focus on creative, but we work closely with media buyers and can recommend partners. We also provide creative strategy and testing frameworks.',
   },
 ];
 
@@ -99,21 +98,21 @@ export default function AddCreationPage() {
     <div className="min-h-screen bg-[var(--color-background)] text-[var(--color-text-primary)] w-full">
       <SEO
         title="Ad Creation Services"
-        description="Vescavia: Ad Creation that Converts. Viral, bold, and unforgettable."
+        description="vescavia: Ads that stop the scroll and drive revenue."
       />
       <Navbar />
       {/* Hero Section */}
       <section className="relative flex flex-col lg:flex-row items-center justify-between max-w-7xl mx-auto pt-32 pb-16 px-4 sm:px-8">
         <div className="flex-1 z-10 text-left">
-          <h1 className="font-jaro text-5xl sm:text-6xl md:text-7xl lg:text-8xl bg-gradient-to-r from-[var(--color-brand-primary)] via-[var(--color-brand-accent)] to-[var(--color-brand-secondary)] bg-clip-text text-transparent font-bold mb-6 leading-tight">
-            Ad Creation
+          <h1 className="font-jaro text-5xl sm:text-6xl md:text-7xl lg:text-8xl lowercase bg-gradient-to-r from-[#FE6427] via-[#8638C4] to-[#b9f151] bg-clip-text text-transparent font-bold mb-6 leading-tight">
+            ad creation
           </h1>
           <p className="text-lg md:text-2xl text-[var(--color-text-secondary)] max-w-xl mb-8">
-            From concept to viral campaign, we craft ads that{' '}
-            <span className="text-fuchsia-300 font-bold">convert</span> and{' '}
-            <span className="text-blue-300 font-bold">captivate</span>.
+            We create ads that{' '}
+            <span className="text-[#FE6427] font-bold">stop the scroll</span> and{' '}
+            <span className="text-[#b9f151] font-bold">drive revenue</span>.
           </p>
-          <Button textContent="Start Your Campaign" className="mt-2" />
+          <Button textContent="let's create" className="mt-2" />
         </div>
         <div className="flex-1 flex items-center justify-center relative mt-10 lg:mt-0">
           <DynamicEmoji images={heroImages} size={320} />
@@ -122,30 +121,37 @@ export default function AddCreationPage() {
 
       {/* About Section */}
       <section className="max-w-5xl mx-auto px-4 sm:px-8 py-12">
-        <div className="bg-gradient-to-br from-purple-900/60 via-fuchsia-900/60 to-blue-900/60 rounded-3xl p-8 md:p-12 shadow-2xl border border-fuchsia-400/20 flex flex-col md:flex-row items-center gap-8">
+        <div className="bg-[var(--color-background-dark)] rounded-3xl p-8 md:p-12 shadow-2xl border-2 border-[#8638C4]/20 flex flex-col md:flex-row items-center gap-8">
           <div className="flex-1">
-            <h2 className="font-jaro text-3xl sm:text-4xl font-bold mb-4 bg-gradient-to-r from-purple-300 via-fuchsia-300 to-blue-300 bg-clip-text text-transparent">
-              Why Vescavia for Ad Creation?
+            <h2 className="font-jaro text-3xl sm:text-4xl lowercase font-bold mb-4 text-[#FE6427]">
+              performance-driven creative
             </h2>
-            <p className="text-gray-200 text-lg mb-4">
-              We don’t just make ads. We create{' '}
-              <span className="text-fuchsia-300 font-semibold">
-                experiences
-              </span>{' '}
-              that stick, stories that spread, and campaigns that{' '}
-              <span className="text-blue-300 font-semibold">convert</span>.
+            <p className="text-[var(--color-text-secondary)] text-lg mb-6 leading-relaxed">
+              We don't make "pretty" ads. We make ads that convert. Every frame, word, and transition is designed to drive action.
             </p>
-            <ul className="list-disc pl-6 text-gray-300 space-y-2">
-              <li>Full-funnel creative strategy</li>
-              <li>Platform-native content (TikTok, IG, YT, Meta, and more)</li>
-              <li>Performance-driven design & copy</li>
-              <li>Rapid iteration & A/B testing</li>
+            <ul className="space-y-3 text-[var(--color-text-secondary)]">
+              <li className="flex items-start gap-3">
+                <span className="text-[#b9f151] font-bold">→</span>
+                <span>Thumb-stopping hooks in the first 3 seconds</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="text-[#fbff15] font-bold">→</span>
+                <span>Platform-native creative (not one-size-fits-all)</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="text-[#FE6427] font-bold">→</span>
+                <span>Copy and visuals optimized for conversion</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="text-[#8638C4] font-bold">→</span>
+                <span>Built-in A/B testing and iteration</span>
+              </li>
             </ul>
           </div>
           <div className="flex-1 flex items-center justify-center">
-            <div className="relative w-64 h-64 rounded-2xl overflow-hidden shadow-xl border-2 border-fuchsia-400/30">
+            <div className="relative w-64 h-64 rounded-2xl overflow-hidden shadow-xl border-2 border-[#FE6427]/30">
               <Image
-                src="/images/services/ad-hero.jpg"
+                src="https://images.unsplash.com/photo-1533750516457-a7f992034fec?w=800&h=800&fit=crop"
                 alt="Ad Creation Visual"
                 fill
                 className="object-cover"
@@ -157,22 +163,25 @@ export default function AddCreationPage() {
 
       {/* How We Work Section */}
       <section className="max-w-6xl mx-auto px-4 sm:px-8 py-12">
-        <h2 className="font-jaro text-4xl font-bold mb-8 bg-gradient-to-r from-purple-300 via-fuchsia-300 to-blue-300 bg-clip-text text-transparent text-center">
-          How We Work
+        <h2 className="font-jaro text-4xl lowercase font-bold mb-12 text-center bg-gradient-to-r from-[#FE6427] via-[#8638C4] to-[#b9f151] bg-clip-text text-transparent">
+          our approach
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {processSteps.map((step, idx) => (
             <div
               key={idx}
-              className="bg-[var(--color-background-dark)] rounded-2xl shadow-xl border border-[color-mix(in_srgb,var(--color-border)_10%,transparent)] p-6 flex flex-col items-center text-center"
+              className="bg-[var(--color-background-dark)] rounded-2xl shadow-xl border-2 border-[var(--color-border)] p-6 hover:border-[#FE6427] transition-all duration-300"
             >
-              <div className="text-4xl mb-4">
-                {['💡', '🎨', '🎬', '🚀'][idx]}
+              <div className="w-12 h-12 rounded-full mb-4 flex items-center justify-center text-xl font-bold" style={{
+                backgroundColor: ['#FE6427', '#8638C4', '#fbff15', '#b9f151'][idx],
+                color: idx === 2 ? '#000' : '#fff'
+              }}>
+                {idx + 1}
               </div>
-              <h3 className="font-jaro text-2xl font-bold mb-2 bg-gradient-to-r from-[color-mix(in_srgb,var(--color-brand-primary)_80%,white)] via-[color-mix(in_srgb,var(--color-brand-accent)_80%,white)] to-[color-mix(in_srgb,var(--color-brand-secondary)_80%,white)] bg-clip-text text-transparent">
+              <h3 className="font-jaro text-2xl lowercase font-bold mb-2 text-[var(--color-text-primary)]">
                 {step.title}
               </h3>
-              <p className="text-[var(--color-text-muted)] text-base">
+              <p className="text-[var(--color-text-muted)] text-base leading-relaxed">
                 {step.description}
               </p>
             </div>
@@ -180,76 +189,158 @@ export default function AddCreationPage() {
         </div>
       </section>
 
-      {/* Services Section */}
+      {/* Services Section - Split Layout */}
       <section className="max-w-7xl mx-auto px-4 sm:px-8 py-12">
-        <h2 className="font-jaro text-4xl font-bold mb-8 bg-gradient-to-r from-purple-300 via-fuchsia-300 to-blue-300 bg-clip-text text-transparent text-center">
-          Our Ad Creation Services
+        <h2 className="font-jaro text-4xl lowercase font-bold mb-12 text-center bg-gradient-to-r from-[#8638C4] via-[#FE6427] to-[#b9f151] bg-clip-text text-transparent">
+          what we create
         </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          {adServices.map((service, idx) => (
-            <div
-              key={idx}
-              className="bg-[var(--color-background-dark)] rounded-2xl shadow-xl border border-[color-mix(in_srgb,var(--color-border)_10%,transparent)] hover:border-[color-mix(in_srgb,var(--color-border)_40%,transparent)] transition-all duration-300 overflow-hidden"
-            >
-              <ServiceCard {...service} />
+        
+        {/* Two Column Layout with alternating sides */}
+        <div className="space-y-16">
+          {/* Service 1 - Image Left */}
+          <div className="flex flex-col md:flex-row gap-8 items-center">
+            <div className="flex-1 relative h-[300px] rounded-2xl overflow-hidden border-2 border-[#FE6427]/30">
+              <Image
+                src={adServices[0].image}
+                alt={adServices[0].title}
+                fill
+                className="object-cover"
+              />
             </div>
-          ))}
+            <div className="flex-1">
+              <h3 className="font-jaro text-3xl lowercase font-bold mb-4 text-[#FE6427]">
+                {adServices[0].title}
+              </h3>
+              <p className="text-[var(--color-text-secondary)] text-lg leading-relaxed">
+                {adServices[0].description}
+              </p>
+            </div>
+          </div>
+
+          {/* Service 2 - Image Right */}
+          <div className="flex flex-col md:flex-row-reverse gap-8 items-center">
+            <div className="flex-1 relative h-[300px] rounded-2xl overflow-hidden border-2 border-[#8638C4]/30">
+              <Image
+                src={adServices[1].image}
+                alt={adServices[1].title}
+                fill
+                className="object-cover"
+              />
+            </div>
+            <div className="flex-1">
+              <h3 className="font-jaro text-3xl lowercase font-bold mb-4 text-[#8638C4]">
+                {adServices[1].title}
+              </h3>
+              <p className="text-[var(--color-text-secondary)] text-lg leading-relaxed">
+                {adServices[1].description}
+              </p>
+            </div>
+          </div>
+
+          {/* Service 3 - Image Left */}
+          <div className="flex flex-col md:flex-row gap-8 items-center">
+            <div className="flex-1 relative h-[300px] rounded-2xl overflow-hidden border-2 border-[#fbff15]/30">
+              <Image
+                src={adServices[2].image}
+                alt={adServices[2].title}
+                fill
+                className="object-cover"
+              />
+            </div>
+            <div className="flex-1">
+              <h3 className="font-jaro text-3xl lowercase font-bold mb-4 text-[#fbff15]">
+                {adServices[2].title}
+              </h3>
+              <p className="text-[var(--color-text-secondary)] text-lg leading-relaxed">
+                {adServices[2].description}
+              </p>
+            </div>
+          </div>
+
+          {/* Service 4 - Image Right */}
+          <div className="flex flex-col md:flex-row-reverse gap-8 items-center">
+            <div className="flex-1 relative h-[300px] rounded-2xl overflow-hidden border-2 border-[#b9f151]/30">
+              <Image
+                src={adServices[3].image}
+                alt={adServices[3].title}
+                fill
+                className="object-cover"
+              />
+            </div>
+            <div className="flex-1">
+              <h3 className="font-jaro text-3xl lowercase font-bold mb-4 text-[#b9f151]">
+                {adServices[3].title}
+              </h3>
+              <p className="text-[var(--color-text-secondary)] text-lg leading-relaxed">
+                {adServices[3].description}
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* Client Results Section */}
-      <section className="max-w-5xl mx-auto px-4 sm:px-8 py-12">
-        <h2 className="font-jaro text-3xl font-bold mb-8 bg-gradient-to-r from-purple-300 via-fuchsia-300 to-blue-300 bg-clip-text text-transparent text-center">
-          Client Results
+      {/* Client Results Section - Simple List */}
+      <section className="max-w-5xl mx-auto px-4 sm:px-8 py-16">
+        <h2 className="font-jaro text-3xl lowercase font-bold mb-12 text-center text-[#FE6427]">
+          client wins
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="space-y-8">
           {testimonials.map((t, idx) => (
             <div
               key={idx}
-              className="bg-gradient-to-br from-purple-900/60 via-fuchsia-900/60 to-blue-900/60 rounded-2xl shadow-xl border border-fuchsia-400/10 p-6 flex flex-col items-center text-center"
+              className="border-l-4 pl-6 py-4 transition-all duration-300" 
+              style={{ borderColor: ['#FE6427', '#8638C4', '#b9f151'][idx] }}
             >
-              <div className="text-4xl mb-4">🌟</div>
-              <p className="text-lg text-gray-200 mb-4">“{t.quote}”</p>
-              <div className="font-bold text-fuchsia-200">{t.name}</div>
-              <div className="text-blue-200 text-sm">{t.company}</div>
+              <p className="text-xl text-[var(--color-text-primary)] mb-4 leading-relaxed italic">
+                "{t.quote}"
+              </p>
+              <div className="flex items-center gap-3">
+                <div className="font-bold text-[var(--color-text-primary)]">{t.name}</div>
+                <span className="text-[var(--color-text-muted)]">•</span>
+                <div className="text-[var(--color-text-muted)] text-sm">{t.company}</div>
+              </div>
             </div>
           ))}
         </div>
       </section>
 
-      {/* FAQ Section */}
+      {/* FAQ Section - Accordion Style */}
       <section className="max-w-4xl mx-auto px-4 sm:px-8 py-12">
-        <h2 className="font-jaro text-3xl font-bold mb-8 bg-gradient-to-r from-purple-300 via-fuchsia-300 to-blue-300 bg-clip-text text-transparent text-center">
-          Frequently Asked Questions
+        <h2 className="font-jaro text-3xl lowercase font-bold mb-12 text-center bg-gradient-to-r from-[#fbff15] via-[#FE6427] to-[#8638C4] bg-clip-text text-transparent">
+          questions?
         </h2>
-        <div className="space-y-6">
+        <div className="space-y-4">
           {faqs.map((faq, idx) => (
             <div
               key={idx}
-              className="bg-[#1D0B2E] rounded-xl border border-fuchsia-400/10 p-6 shadow-md"
+              className="bg-[var(--color-background-dark)] rounded-xl border-l-4 p-6 shadow-md transition-all duration-300 hover:pl-8"
+              style={{ borderColor: ['#FE6427', '#8638C4', '#b9f151'][idx] }}
             >
-              <h3 className="font-jaro text-xl font-bold mb-2 text-fuchsia-200">
+              <h3 className="font-jaro text-xl lowercase font-bold mb-3 text-[var(--color-text-primary)]">
                 {faq.question}
               </h3>
-              <p className="text-gray-300 text-base">{faq.answer}</p>
+              <p className="text-[var(--color-text-secondary)] text-base leading-relaxed">
+                {faq.answer}
+              </p>
             </div>
           ))}
         </div>
       </section>
 
-      {/* Animated Video Grid Section (Creative Placeholder) */}
-      <section className="max-w-6xl mx-auto px-4 sm:px-8 py-12">
-        <h2 className="font-jaro text-3xl font-bold mb-6 bg-gradient-to-r from-purple-300 via-fuchsia-300 to-blue-300 bg-clip-text text-transparent text-center">
-          See Our Creative Energy
+      {/* CTA Section */}
+      <section className="max-w-6xl mx-auto px-4 sm:px-8 py-12 mb-16">
+        <h2 className="font-jaro text-3xl lowercase font-bold mb-8 text-center text-[#b9f151]">
+          ready to scale?
         </h2>
-        <div className="rounded-2xl overflow-hidden shadow-2xl border border-[color-mix(in_srgb,var(--color-border)_10%,transparent)] bg-gradient-to-br from-[color-mix(in_srgb,var(--color-brand-primary)_40%,black)] via-[color-mix(in_srgb,var(--color-brand-accent)_40%,black)] to-[color-mix(in_srgb,var(--color-brand-secondary)_40%,black)]">
-          {/* Placeholder for animated video grid or creative showcase */}
-          <div className="flex flex-col items-center justify-center py-16">
-            <span className="text-5xl mb-4">🎬✨</span>
-            <p className="text-lg text-[var(--color-text-secondary)] max-w-xl text-center">
-              Your ad could be here! We turn ideas into scroll-stopping visuals
-              and viral moments.
+        <div className="rounded-2xl overflow-hidden shadow-2xl border-2 border-[#FE6427] bg-[var(--color-background-dark)]">
+          <div className="flex flex-col items-center justify-center py-16 px-8">
+            <p className="text-2xl text-[var(--color-text-primary)] max-w-2xl text-center mb-8 font-bold">
+              Stop throwing money at ads that don't work.
             </p>
+            <p className="text-lg text-[var(--color-text-secondary)] max-w-xl text-center mb-8">
+              Let's create campaigns that actually drive revenue. Performance creative that scales.
+            </p>
+            <Button textContent="start your campaign" className="mt-2" />
           </div>
         </div>
       </section>

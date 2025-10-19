@@ -15,8 +15,8 @@ export default function CopyrightPage() {
 
         <section className="w-full bg-[#11001D] py-16 flex justify-center items-center overflow-hidden">
           <div className="group relative flex flex-col items-center">
-            <h1 className="text-white font-extrabold tracking-tight text-[10vw] sm:text-[12vw] md:text-[15vw] lg:text-[19vw] leading-none">
-              Vescavia
+            <h1 className="text-white font-jaro lowercase tracking-tight text-[10vw] sm:text-[12vw] md:text-[15vw] lg:text-[19vw] leading-none">
+              vescavia
             </h1>
             <p className="mt-6 text-sm sm:text-base md:text-lg text-gray-300 italic opacity-0 group-hover:opacity-100 transition-opacity duration-500 text-center">
               A door to connect with the world

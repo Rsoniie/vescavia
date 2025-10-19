@@ -109,7 +109,6 @@ const Navbar = () => {
         style={{ backgroundColor: bgColor, backdropFilter: blur }}
         className="fixed top-0 left-0 right-0 z-50 px-6 py-3 flex justify-between items-center shadow-xl"
       >
-        <div className="absolute inset-0 opacity-80 pointer-events-none" />
         <motion.div
           variants={logoVariants}
           initial="hidden"
@@ -118,8 +117,8 @@ const Navbar = () => {
           className="relative z-10"
         >
           <Link href="/" className="block focus:outline-none">
-            <span className="text-3xl font-bold bg-gradient-to-r from-[var(--color-brand-primary)] via-[var(--color-brand-accent)] to-[var(--color-brand-secondary)] bg-clip-text text-transparent">
-              Vescavia
+            <span className="text-3xl font-jaro lowercase bg-gradient-to-r from-[var(--color-brand-primary)] via-[var(--color-brand-accent)] to-[var(--color-brand-secondary)] bg-clip-text text-transparent">
+              vescavia
             </span>
             <motion.span
               className="absolute -inset-2 bg-gradient-to-r from-[color-mix(in_srgb,var(--color-brand-primary)_60%,black)] via-[color-mix(in_srgb,var(--color-brand-accent)_60%,black)] to-[color-mix(in_srgb,var(--color-brand-secondary)_60%,black)] rounded-lg blur-md"
@@ -144,7 +143,12 @@ const Navbar = () => {
                   href={link.href}
                   className="relative font-medium text-[var(--color-text-secondary)] hover:text-[var(--color-brand-accent)] transition-colors duration-300 px-2 py-1"
                 >
-                  {link.name}
+                  <motion.span
+                    className="absolute -inset-2 bg-gradient-to-r from-[color-mix(in_srgb,var(--color-brand-primary)_20%,black)] to-[color-mix(in_srgb,var(--color-brand-accent)_20%,black)] rounded-lg opacity-0 -z-10"
+                    whileHover={{ opacity: 1 }}
+                    transition={{ duration: 0.2 }}
+                  />
+                  <span className="relative z-10">{link.name}</span>
                   {isActive && (
                     <motion.span
                       layoutId="activeLink"
@@ -156,11 +160,6 @@ const Navbar = () => {
                       }}
                     />
                   )}
-                  <motion.span
-                    className="absolute -inset-2 bg-gradient-to-r from-[color-mix(in_srgb,var(--color-brand-primary)_20%,black)] to-[color-mix(in_srgb,var(--color-brand-accent)_20%,black)] rounded-lg opacity-0"
-                    whileHover={{ opacity: 1 }}
-                    transition={{ duration: 0.2 }}
-                  />
                 </Link>
               </motion.div>
             );

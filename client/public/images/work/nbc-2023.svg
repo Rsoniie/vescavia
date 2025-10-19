@@ -1,0 +1,73 @@
+<svg width="1200" height="800" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="1200" height="800" fill="#0A1128"/>
+  
+  <!-- Gradient overlay -->
+  <defs>
+    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1C2951;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0A1128;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#3B82F6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#8B5CF6;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <rect width="1200" height="800" fill="url(#grad1)"/>
+  
+  <!-- Decorative elements -->
+  <circle cx="150" cy="150" r="100" fill="#3B82F6" opacity="0.1"/>
+  <circle cx="1050" cy="650" r="120" fill="#8B5CF6" opacity="0.15"/>
+  <circle cx="900" cy="200" r="70" fill="#60A5FA" opacity="0.1"/>
+  
+  <!-- Main content -->
+  <text x="600" y="220" font-family="Arial, sans-serif" font-size="64" font-weight="bold" fill="url(#grad2)" text-anchor="middle">
+    NBC 2023
+  </text>
+  
+  <text x="600" y="280" font-family="Arial, sans-serif" font-size="24" fill="#94A3B8" text-anchor="middle">
+    National Bioengineering Conference
+  </text>
+  
+  <text x="600" y="320" font-family="Arial, sans-serif" font-size="20" fill="#64748B" text-anchor="middle">
+    NIT Rourkela | November 9-11, 2023
+  </text>
+  
+  <!-- Feature boxes -->
+  <rect x="150" y="420" width="280" height="140" rx="12" fill="#1E293B" stroke="#3B82F6" stroke-width="2"/>
+  <text x="290" y="470" font-family="Arial, sans-serif" font-size="48" fill="#3B82F6" text-anchor="middle">1000+</text>
+  <text x="290" y="510" font-family="Arial, sans-serif" font-size="18" fill="#CBD5E1" text-anchor="middle">Conference</text>
+  <text x="290" y="535" font-family="Arial, sans-serif" font-size="18" fill="#CBD5E1" text-anchor="middle">Attendees</text>
+  
+  <rect x="460" y="420" width="280" height="140" rx="12" fill="#1E293B" stroke="#8B5CF6" stroke-width="2"/>
+  <text x="600" y="470" font-family="Arial, sans-serif" font-size="48" fill="#8B5CF6" text-anchor="middle">Hybrid</text>
+  <text x="600" y="510" font-family="Arial, sans-serif" font-size="18" fill="#CBD5E1" text-anchor="middle">Event</text>
+  <text x="600" y="535" font-family="Arial, sans-serif" font-size="18" fill="#CBD5E1" text-anchor="middle">Mode</text>
+  
+  <rect x="770" y="420" width="280" height="140" rx="12" fill="#1E293B" stroke="#60A5FA" stroke-width="2"/>
+  <text x="910" y="470" font-family="Arial, sans-serif" font-size="48" fill="#60A5FA" text-anchor="middle">100%</text>
+  <text x="910" y="510" font-family="Arial, sans-serif" font-size="18" fill="#CBD5E1" text-anchor="middle">Success</text>
+  <text x="910" y="535" font-family="Arial, sans-serif" font-size="18" fill="#CBD5E1" text-anchor="middle">Rate</text>
+  
+  <!-- Tech stack -->
+  <text x="600" y="640" font-family="Arial, sans-serif" font-size="16" fill="#64748B" text-anchor="middle">
+    HTML • CSS • JavaScript • Netlify
+  </text>
+  
+  <!-- URL -->
+  <text x="600" y="700" font-family="Arial, sans-serif" font-size="20" fill="#3B82F6" text-anchor="middle">
+    nbc-2023.netlify.app
+  </text>
+  
+  <!-- Theme text -->
+  <text x="600" y="360" font-family="Arial, sans-serif" font-size="16" fill="#8B5CF6" text-anchor="middle" font-style="italic">
+    "Bioengineering in Healthcare, Environment &amp; Agriculture"
+  </text>
+  
+  <!-- Decorative dots -->
+  <circle cx="100" cy="700" r="4" fill="#3B82F6"/>
+  <circle cx="1100" cy="100" r="4" fill="#8B5CF6"/>
+  <circle cx="150" cy="600" r="3" fill="#60A5FA"/>
+  <circle cx="1050" cy="300" r="3" fill="#3B82F6"/>
+</svg>

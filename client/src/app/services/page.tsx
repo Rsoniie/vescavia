@@ -73,7 +73,7 @@ export default function ServicesPage() {
 
   return (
     <div className="bg-[var(--color-background)] text-[var(--color-text-primary)] min-h-screen w-full">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <Navbar />
         <motion.main
           className="text-center mb-16"
@@ -95,7 +95,7 @@ export default function ServicesPage() {
             brand unforgettable.
           </motion.p>
           <motion.div
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8"
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10"
             variants={containerVariants}
           >
             {services.map((service, index) => (
@@ -107,10 +107,11 @@ export default function ServicesPage() {
                   transition: { duration: 0.3, ease: 'easeOut' },
                 }}
                 whileTap={{ scale: 0.98 }}
+                className="w-full max-w-[420px] mx-auto lg:max-w-none flowing-gradient-border"
               >
                 <Link
                   href={service.href || '#'}
-                  className="group bg-[var(--color-background-dark)] rounded-xl transition-all duration-300 hover:shadow-2xl overflow-hidden relative min-h-[320px] sm:min-h-[360px] md:min-h-[400px] block"
+                  className="group bg-[var(--color-background-dark)] rounded-2xl transition-all duration-300 hover:shadow-2xl overflow-hidden relative h-[500px] sm:h-[550px] lg:h-[600px] block"
                 >
                   <div className="absolute inset-0 z-0 transform group-hover:scale-105 transition-transform duration-500">
                     <Image
@@ -120,27 +121,6 @@ export default function ServicesPage() {
                       className="object-cover"
                       priority={index < 2}
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-background-dark)] via-[color-mix(in_srgb,var(--color-background-dark)_50%,transparent)] to-transparent"></div>
-                  </div>
-                  <div className="relative z-10 h-full flex flex-col justify-end p-6 sm:p-8">
-                    <h2
-                      className="
-                      text-xl sm:text-2xl font-bold mb-2 
-                      block lg:opacity-0 lg:group-hover:opacity-100 
-                      transition-opacity duration-300
-                    "
-                    >
-                      {service.title}
-                    </h2>
-                    <p
-                      className="
-                      text-gray-300 text-sm sm:text-base 
-                      hidden lg:block lg:opacity-0 lg:group-hover:opacity-100 
-                      transition-opacity duration-300
-                    "
-                    >
-                      {service.description}
-                    </p>
                   </div>
                 </Link>
               </motion.div>

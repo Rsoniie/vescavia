@@ -37,73 +37,72 @@ interface Project {
 const projects: Project[] = [
   {
     id: 1,
-    title: 'TechFlow Brand Revolution',
-    category: 'Brand Strategy & Identity',
+    title: 'The Nikah Nest',
+    category: 'Web Development & Design',
     description:
-      'Complete brand transformation for a tech startup, resulting in 300% increase in user engagement and successful Series A funding.',
-    technologies: ['Brand Strategy', 'Logo Design', 'UI/UX', 'Marketing'],
-    image: '/images/work/project1.jpg',
-    liveUrl: '#',
+      'Built a comprehensive Islamic wedding vendor platform connecting Muslim couples with halal-certified vendors across India. Features include vendor profiles, search functionality, booking system, and community reviews.',
+    technologies: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Framer Motion'],
+    image: '/images/work/nikah-nest.png',
+    liveUrl: 'https://thenikahnest.com',
     stats: {
-      growth: '300%',
-      engagement: '85%',
-      views: '2.5M',
+      views: '37+',
+      engagement: '5.0★',
+      growth: '20+',
     },
-    client: 'TechFlow Inc.',
-    year: '2024',
+    client: 'The Nikah Nest',
+    year: '2025',
   },
   {
     id: 2,
-    title: 'E-commerce Platform Launch',
+    title: 'NBC 2023 Conference',
     category: 'Web Development & Design',
     description:
-      'Built a high-converting e-commerce platform with custom animations and seamless UX, generating $1M+ in first quarter sales.',
-    technologies: ['Next.js', 'TypeScript', 'Framer Motion', 'Stripe'],
-    image: '/images/work/project2.jpg',
-    video: '/videos/project2-demo.mp4',
-    liveUrl: '#',
+      'Developed a professional conference website for National Bioengineering Conference 2023 at NIT Rourkela. Features include registration system, speaker profiles, program schedule, image carousel, and hybrid event management.',
+    technologies: ['HTML', 'CSS', 'JavaScript', 'Netlify'],
+    image: '/images/work/nbc-2023.png',
+    liveUrl: 'https://nbc-2023.netlify.app/',
     stats: {
-      views: '500K',
-      engagement: '92%',
-      growth: '450%',
+      views: '1000+',
+      engagement: '100%',
+      growth: 'Hybrid',
     },
-    client: 'RetailCorp',
-    year: '2024',
+    client: 'NIT Rourkela',
+    year: '2023',
   },
   {
     id: 3,
-    title: 'Viral Marketing Campaign',
-    category: 'Viral Marketing Campaigns',
+    title: 'X Audio Video Downloader',
+    category: 'Web Development & Design',
     description:
-      'Created a multi-platform viral campaign that reached 10M+ users organically and increased brand awareness by 400%.',
-    technologies: ['Social Media', 'Content Creation', 'Analytics', 'SEO'],
-    image: '/images/work/project3.jpg',
-    video: '/videos/viral-campaign.mp4',
+      'Built a fast and secure online tool for downloading videos and GIFs from Twitter/X. Features include URL extraction, MP4 conversion, mobile-friendly interface, and no registration required. Supports multiple formats and quality options.',
+    technologies: ['JavaScript', 'API Integration', 'Netlify', 'Responsive Design'],
+    image: '/images/work/xaudio.png',
+    liveUrl: 'https://xaudiovideodownloader.netlify.app/',
     stats: {
-      views: '10M+',
-      engagement: '78%',
-      growth: '400%',
+      views: 'Free',
+      engagement: 'Fast',
+      growth: '10s delay',
     },
-    client: 'StartupVision',
+    client: 'X Audio Video Downloader',
     year: '2024',
   },
   {
     id: 4,
-    title: 'FinTech App Redesign',
-    category: 'Complete Brand Transformation',
+    title: 'IPDIMS 2024 Conference',
+    category: 'Web Development & Design',
     description:
-      'End-to-end transformation including brand identity, mobile app redesign, and market positioning strategy.',
-    technologies: ['React Native', 'Brand Strategy', 'UI/UX', 'Motion Design'],
-    image: '/images/work/project4.jpg',
-    liveUrl: '#',
+      'Developed a comprehensive conference website for the 6th International Conference on Industrial Product Design and Intelligent Manufacturing Systems at NIT Rourkela. Features include paper submission portal, registration system, Springer proceedings publication, speaker profiles, and accommodation management for 1,500+ participants.',
+    technologies: ['Next.js', 'React', 'TypeScript', 'Vercel'],
+    image: '/images/work/ipdims.png',
+    liveUrl: 'https://conference-website-rp.vercel.app/home',
     stats: {
-      growth: '250%',
-      engagement: '88%',
-      views: '1.2M',
+      views: '1500+',
+      engagement: '50',
+      growth: '20+',
     },
-    client: 'FinanceFlow',
-    year: '2023',
-  },
+    client: 'NIT Rourkela',
+    year: '2024',
+  }
 ];
 
 const categories = [
@@ -239,10 +238,22 @@ export default function WorkPage() {
                   className="group cursor-pointer"
                   onClick={() => setSelectedProject(project)}
                 >
-                  <div className="relative bg-[var(--color-background-dark)] rounded-2xl overflow-hidden border border-[var(--color-border)]/20 hover:border-[var(--color-brand-primary)]/50 transition-all duration-300">
+                  <div className="flowing-gradient-border transition-all duration-300">
+                    <div className="relative bg-[var(--color-background-dark)] rounded-2xl overflow-hidden">
                     {/* Project Image */}
-                    <div className="relative h-64 overflow-hidden">
-                      <div className="w-full h-full bg-gradient-to-br from-[var(--color-brand-primary)]/20 to-[var(--color-brand-accent)]/20 flex items-center justify-center">
+                    <div className="relative h-64 overflow-hidden rounded-t-2xl">
+                      <img 
+                        src={project.image} 
+                        alt={project.title}
+                        className="w-full h-full object-cover"
+                        onError={(e) => {
+                          // Fallback if image doesn't load
+                          const target = e.target as HTMLImageElement;
+                          target.style.display = 'none';
+                          target.nextElementSibling?.classList.remove('hidden');
+                        }}
+                      />
+                      <div className="hidden w-full h-full bg-gradient-to-br from-[var(--color-brand-primary)]/20 to-[var(--color-brand-accent)]/20 flex items-center justify-center absolute inset-0">
                         <motion.div
                           whileHover={{ scale: 1.1 }}
                           className="text-6xl text-[var(--color-brand-primary)]/30"
@@ -290,7 +301,7 @@ export default function WorkPage() {
                       {project.stats && (
                         <div className="flex gap-4 mb-4">
                           {project.stats.growth && (
-                            <div className="flex items-center gap-1 text-green-400">
+                            <div className="flex items-center gap-1" style={{ color: '#b9f151' }}>
                               <FaRocket className="text-xs" />
                               <span className="text-sm">
                                 {project.stats.growth}
@@ -298,7 +309,7 @@ export default function WorkPage() {
                             </div>
                           )}
                           {project.stats.views && (
-                            <div className="flex items-center gap-1 text-blue-400">
+                            <div className="flex items-center gap-1" style={{ color: '#8638C4' }}>
                               <FaEye className="text-xs" />
                               <span className="text-sm">
                                 {project.stats.views}
@@ -306,7 +317,7 @@ export default function WorkPage() {
                             </div>
                           )}
                           {project.stats.engagement && (
-                            <div className="flex items-center gap-1 text-pink-400">
+                            <div className="flex items-center gap-1" style={{ color: '#FE6427' }}>
                               <FaHeart className="text-xs" />
                               <span className="text-sm">
                                 {project.stats.engagement}
@@ -340,6 +351,7 @@ export default function WorkPage() {
                           {project.client}
                         </span>
                       </p>
+                    </div>
                     </div>
                   </div>
                 </motion.div>
@@ -468,8 +480,17 @@ export default function WorkPage() {
                   </button>
                 </div>
 
-                <div className="h-64 bg-gradient-to-br from-[var(--color-brand-primary)]/20 to-[var(--color-brand-accent)]/20 rounded-xl mb-6 flex items-center justify-center">
-                  <div className="text-6xl text-[var(--color-brand-primary)]/30">
+                <div className="relative h-64 bg-gradient-to-br from-[var(--color-brand-primary)]/20 to-[var(--color-brand-accent)]/20 rounded-xl mb-6 flex items-center justify-center overflow-hidden">
+                  <img 
+                    src={selectedProject.image} 
+                    alt={selectedProject.title}
+                    className="w-full h-full object-cover"
+                    onError={(e) => {
+                      const target = e.target as HTMLImageElement;
+                      target.style.display = 'none';
+                    }}
+                  />
+                  <div className="absolute inset-0 flex items-center justify-center text-6xl text-[var(--color-brand-primary)]/30">
                     {getCategoryIcon(selectedProject.category)}
                   </div>
                 </div>
@@ -532,7 +553,7 @@ export default function WorkPage() {
                               <span className="text-[var(--color-text-secondary)]">
                                 Growth:
                               </span>
-                              <span className="text-green-400">
+                              <span style={{ color: '#b9f151' }}>
                                 {selectedProject.stats.growth}
                               </span>
                             </div>
@@ -542,7 +563,7 @@ export default function WorkPage() {
                               <span className="text-[var(--color-text-secondary)]">
                                 Views:
                               </span>
-                              <span className="text-blue-400">
+                              <span style={{ color: '#8638C4' }}>
                                 {selectedProject.stats.views}
                               </span>
                             </div>
@@ -552,7 +573,7 @@ export default function WorkPage() {
                               <span className="text-[var(--color-text-secondary)]">
                                 Engagement:
                               </span>
-                              <span className="text-pink-400">
+                              <span style={{ color: '#FE6427' }}>
                                 {selectedProject.stats.engagement}
                               </span>
                             </div>
@@ -565,10 +586,15 @@ export default function WorkPage() {
 
                 {selectedProject.liveUrl && (
                   <div className="mt-8 pt-6 border-t border-[var(--color-border)]/20">
-                    <button className="flex items-center gap-2 bg-gradient-to-r from-[var(--color-brand-primary)] to-[var(--color-brand-accent)] text-white px-6 py-3 rounded-lg hover:scale-105 transition-transform">
+                    <a 
+                      href={selectedProject.liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 bg-gradient-to-r from-[var(--color-brand-primary)] to-[var(--color-brand-accent)] text-white px-6 py-3 rounded-lg hover:scale-105 transition-transform"
+                    >
                       <FaExternalLinkAlt />
                       View Live Project
-                    </button>
+                    </a>
                   </div>
                 )}
               </div>
